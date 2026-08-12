@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | StudentHub</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h1>StudentHub</h1>
+        </div>
+
+        <div class="header-icons">
+
+            <button class="notification-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li><a href="dashboard.html">Dashboard</a></li>
+
+                    <li class="dropdown">
+
+                        <button class="dropdown-btn">
+                            Academics ▼
+                        </button>
+
+                        <ul class="submenu">
+
+                            <li><a href="catalog.html">Catalog</a></li>
+                            <li><a href="course-detail.html">My Courses</a></li>
+                            <li><a href="assignments.html">Assignments</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li><a href="calender.html">Events</a></li>
+
+                    <li><a href="career.html">Career</a></li>
+
+                    <li><a href="forums.html">Forums</a></li>
+
+                    <li><a href="helpdesk.html">HelpDesk</a></li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <section class="content">
+
+            <header class="page-header">
+
+                <h2>My Profile</h2>
+
+            </header>
+
+            <section class="profile-container">
+
+                <!-- Left Section -->
+                <aside class="profile-sidebar">
+
+                    <div class="profile-image">
+
+                        <img src="images/profile.png"
+                             alt="Profile Picture">
+
+                    </div>
+
+                    <button type="button">
+                        Change Photo
+                    </button>
+
+                </aside>
+
+                <!-- Right Section -->
+                <section class="profile-details">
+
+                    <form action="#" method="post">
+
+                        <div class="form-group">
+
+                            <label for="fullname">
+                                Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="fullname"
+                                name="fullname">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="email">
+                                Email
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="studentid">
+                                Student ID
+                            </label>
+
+                            <input
+                                type="text"
+                                id="studentid"
+                                name="studentid">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="department">
+                                Department
+                            </label>
+
+                            <input
+                                type="text"
+                                id="department"
+                                name="department">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label for="semester">
+                                Semester
+                            </label>
+
+                            <input
+                                type="text"
+                                id="semester"
+                                name="semester">
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+
+                                <input type="checkbox">
+
+                                Enable Notifications
+
+                            </label>
+
+                        </div>
+
+                        <div class="form-group">
+
+                            <label>
+
+                                <input type="checkbox">
+
+                                Email Notifications
+
+                            </label>
+
+                        </div>
+
+                        <div class="profile-actions">
+
+                            <button type="submit">
+                                Save Changes
+                            </button>
+
+                            <button type="button">
+                                Change Password
+                            </button>
+
+                        </div>
+
+                    </form>
+
+                </section>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

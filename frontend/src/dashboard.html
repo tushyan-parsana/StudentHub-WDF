@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>StudentHub Dashboard</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h1>StudentHub</h1>
+        </div>
+
+        <div class="header-icons">
+            <button class="notification-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+        </div>
+
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li class="dropdown">
+
+                        <button class="dropdown-btn">
+                            Academics ▼
+                        </button>
+
+                        <ul class="submenu">
+
+                            <li><a href="catalog.html">Catalog</a></li>
+                            <li><a href="course-detail.html">My Courses</a></li>
+                            <li><a href="assignments.html">Assignments</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li><a href="calender.html">Events</a></li>
+
+                    <li><a href="career.html">Career</a></li>
+
+                    <li><a href="forums.html">Forums</a></li>
+
+                    <li><a href="helpdesk.html">HelpDesk</a></li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- Dashboard Content -->
+        <section class="content">
+
+            <header class="welcome">
+                <h2>Welcome back, Alex!</h2>
+            </header>
+
+            <!-- Top Cards -->
+            <section class="cards">
+
+                <!-- Deadlines -->
+                <article class="card">
+
+                    <h3>Upcoming Deadlines</h3>
+
+                    <ul>
+
+                        <li>
+                            <input type="checkbox">
+                            <span>Upcoming deadline</span>
+                        </li>
+
+                        <li>
+                            <input type="checkbox">
+                            <span>Upcoming widget task</span>
+                        </li>
+
+                    </ul>
+
+                </article>
+
+                <!-- Schedule -->
+                <article class="card">
+
+                    <h3>Today's Schedule</h3>
+
+                    <ul>
+
+                        <li>
+                            <input type="checkbox">
+                            <span>Physics - 10:00</span>
+                        </li>
+
+                        <li>
+                            <input type="checkbox">
+                            <span>Physics - 10:00</span>
+                        </li>
+
+                        <li>
+                            <input type="checkbox">
+                            <span>Physics - 10:00</span>
+                        </li>
+
+                    </ul>
+
+                </article>
+
+            </section>
+
+            <!-- Announcements -->
+            <section class="announcement-card">
+
+                <h3>Campus Announcements</h3>
+
+                <p>
+                    • Meeting notes from the administration head will be posted soon.
+                    The campus announcements center provides details about incidents.
+                </p>
+
+                <a href="#">
+                    Campus Announcements
+                </a>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

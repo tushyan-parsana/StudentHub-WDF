@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Assignments | StudentHub</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         Header
+    ========================== -->
+
+    <header class="header">
+
+        <div class="logo">
+            <div class="logo-icon"></div>
+            <h1>StudentHub</h1>
+        </div>
+
+        <!-- Search -->
+        <div class="header-search">
+
+            <input
+                type="search"
+                placeholder="Search Assignments..."
+                name="assignment-search">
+
+        </div>
+
+        <!-- Header Actions -->
+        <div class="header-icons">
+
+            <button
+                type="button"
+                class="notification-btn"
+                aria-label="Notifications">
+                🔔
+            </button>
+
+            <button
+                type="button"
+                class="profile-btn"
+                aria-label="Profile">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+
+    <!-- =========================
+         Main Layout
+    ========================== -->
+
+    <main class="dashboard-container">
+
+
+        <!-- =========================
+             Sidebar
+        ========================== -->
+
+        <aside class="sidebar">
+
+            <nav aria-label="Main Navigation">
+
+                <h2 class="navigation-title">
+                    NAVIGATION
+                </h2>
+
+                <ul class="menu">
+
+                    <li>
+                        <a href="dashboard.html">
+                            Dashboard
+                        </a>
+                    </li>
+
+
+                    <!-- Academics -->
+
+                    <li class="dropdown active">
+
+                        <button
+                            type="button"
+                            class="dropdown-btn">
+
+                            Academics
+
+                        </button>
+
+
+                        <ul class="submenu">
+
+                            <li>
+                                <a href="catalog.html">
+                                    Catalog
+                                </a>
+                            </li>
+
+                            <li>
+                                <a href="course-detail.html">
+                                    My Courses
+                                </a>
+                            </li>
+
+                            <li class="current-page">
+                                <a href="assignments.html">
+                                    Assignments
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+
+                    <!-- Other Navigation -->
+
+                    <li>
+                        <a href="calender.html">
+                            Events
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="career.html">
+                            Career
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="forums.html">
+                            Forums
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="helpdesk.html">
+                            HelpDesk
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            Settings
+                        </a>
+                    </li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+
+        <!-- =========================
+             Main Content
+        ========================== -->
+
+        <section class="content">
+
+
+            <!-- Page Title -->
+
+            <header class="page-header">
+
+                <h2>
+                    My Assignments &amp; Grades
+                </h2>
+
+            </header>
+
+
+            <!-- =========================
+                 Filters
+            ========================== -->
+
+            <section class="assignment-filters">
+
+                <label for="course-filter">
+                    Course
+                </label>
+
+                <select id="course-filter" name="course">
+
+                    <option>
+                        All Courses
+                    </option>
+
+                </select>
+
+
+                <label for="status-filter">
+                    Status
+                </label>
+
+                <select id="status-filter" name="status">
+
+                    <option>
+                        Status: Pending
+                    </option>
+
+                </select>
+
+            </section>
+
+
+            <!-- =========================
+                 Pending Submissions
+            ========================== -->
+
+            <section class="pending-submissions">
+
+                <h3>
+                    Pending Submissions
+                </h3>
+
+
+                <!-- Assignment 1 -->
+
+                <article class="assignment-card">
+
+                    <div class="assignment-info">
+
+                        <h4>
+                            Calculus - Limits &amp; Differentiation Worksheet
+                        </h4>
+
+                        <p>
+                            Due: Aug 14, 2026 - 11:59 PM
+                        </p>
+
+                    </div>
+
+
+                    <div class="assignment-actions">
+
+                        <button type="button">
+                            Upload
+                        </button>
+
+                        <button type="button">
+                            Submit
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Assignment 2 -->
+
+                <article class="assignment-card">
+
+                    <div class="assignment-info">
+
+                        <h4>
+                            Cloud Engineering Foundation - Lab 1
+                        </h4>
+
+                        <p>
+                            Due: Aug 18, 2026 - 11:59 PM
+                        </p>
+
+                    </div>
+
+
+                    <div class="assignment-actions">
+
+                        <button type="button">
+                            Upload
+                        </button>
+
+                        <button type="button">
+                            Submit
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+
+            <!-- =========================
+                 Recently Graded Work
+            ========================== -->
+
+            <section class="graded-work">
+
+                <h3>
+                    Recently Graded Work
+                </h3>
+
+
+                <!-- Graded Assignment 1 -->
+
+                <article class="graded-card">
+
+                    <div class="graded-info">
+
+                        <h4>
+                            Symmetric Matrices Quiz
+                        </h4>
+
+                        <p class="grade">
+                            Grade: 92 / 100 (A)
+                        </p>
+
+                    </div>
+
+
+                    <div class="feedback-action">
+
+                        <button type="button">
+                            View Feedback
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- Graded Assignment 2 -->
+
+                <article class="graded-card">
+
+                    <div class="graded-info">
+
+                        <h4>
+                            DDCET Mock Exam - Chapter 1
+                        </h4>
+
+                        <p class="grade">
+                            Grade: 85 / 100 (B)
+                        </p>
+
+                    </div>
+
+
+                    <div class="feedback-action">
+
+                        <button type="button">
+                            View Feedback
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <!-- JavaScript - Later -->
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>

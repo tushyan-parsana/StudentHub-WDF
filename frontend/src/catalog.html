@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Catalog | StudentHub</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h1>StudentHub</h1>
+        </div>
+
+        <div class="header-icons">
+
+            <button class="notification-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li class="dropdown">
+
+                        <button class="dropdown-btn">
+                            Academics ▼
+                        </button>
+
+                        <ul class="submenu">
+
+                            <li><a href="catalog.html">Catalog</a></li>
+
+                            <li><a href="course-detail.html">My Courses</a></li>
+
+                            <li><a href="assignments.html">Assignments</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li><a href="calender.html">Events</a></li>
+
+                    <li><a href="career.html">Career</a></li>
+
+                    <li><a href="forums.html">Forums</a></li>
+
+                    <li><a href="helpdesk.html">HelpDesk</a></li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <section class="content">
+
+            <!-- Search -->
+            <section class="search-section">
+
+                <input
+                    type="search"
+                    name="search"
+                    placeholder="Search">
+
+            </section>
+
+            <!-- Filters -->
+            <section class="filter-section">
+
+                <select name="filter">
+                    <option>Filters</option>
+                </select>
+
+                <select name="semester">
+                    <option>Semester</option>
+                </select>
+
+                <select name="session">
+                    <option>Session</option>
+                </select>
+
+                <button type="button">
+                    More Filters
+                </button>
+
+            </section>
+
+            <!-- Course List -->
+            <section class="course-list">
+
+                <!-- Course Card -->
+                <article class="course-card">
+
+                    <div class="course-image">
+
+                        <img
+                            src="images/course-placeholder.png"
+                            alt="Course Image">
+
+                    </div>
+
+                    <div class="course-details">
+
+                        <h3>CS301 Project (2d)</h3>
+
+                        <p>27 Seats | 50 min</p>
+
+                    </div>
+
+                    <div class="course-action">
+
+                        <button type="button">
+                            Add
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- Course Card -->
+                <article class="course-card">
+
+                    <div class="course-image">
+
+                        <img
+                            src="images/course-placeholder.png"
+                            alt="Course Image">
+
+                    </div>
+
+                    <div class="course-details">
+
+                        <h3>CS301 Project (3d)</h3>
+
+                        <p>27 Seats | 50 min</p>
+
+                    </div>
+
+                    <div class="course-action">
+
+                        <button type="button">
+                            Add
+                        </button>
+
+                    </div>
+
+                </article>
+
+                <!-- Course Card -->
+                <article class="course-card">
+
+                    <div class="course-image">
+
+                        <img
+                            src="images/course-placeholder.png"
+                            alt="Course Image">
+
+                    </div>
+
+                    <div class="course-details">
+
+                        <h3>CS301 Project (2d)</h3>
+
+                        <p>27 Seats | 50 min</p>
+
+                    </div>
+
+                    <div class="course-action">
+
+                        <button type="button">
+                            Add
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

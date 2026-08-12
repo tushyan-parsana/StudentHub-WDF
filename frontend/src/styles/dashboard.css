@@ -1,0 +1,1526 @@
+/* ===========================
+   Google Font
+=========================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* ===========================
+   Reset
+=========================== */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+/* ===========================
+   Header
+=========================== */
+
+.header{
+    width:100%;
+    height:70px;
+    background:#4F46E5;
+    color:#fff;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 30px;
+}
+
+.logo h1{
+    font-size:28px;
+}
+
+.header-icons{
+    display:flex;
+    gap:15px;
+}
+
+.header-icons button{
+    width:45px;
+    height:45px;
+
+    border:none;
+    border-radius:50%;
+
+    background:#fff;
+    color:#4F46E5;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.header-icons button:hover{
+    transform:scale(1.08);
+}
+
+/* ===========================
+   Dashboard Layout
+=========================== */
+
+.dashboard-container{
+    display:flex;
+    min-height:calc(100vh - 70px);
+}
+
+/* ===========================
+   Sidebar
+=========================== */
+
+.sidebar{
+    width:250px;
+    background:#ffffff;
+    border-right:1px solid #ddd;
+    padding:25px;
+}
+
+.menu{
+    list-style:none;
+}
+
+.menu li{
+    margin-bottom:15px;
+}
+
+.menu a,
+.dropdown-btn{
+
+    display:block;
+
+    width:100%;
+
+    padding:12px;
+
+    border:none;
+
+    border-radius:8px;
+
+    background:none;
+
+    text-align:left;
+
+    color:#333;
+
+    text-decoration:none;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.menu a:hover,
+.dropdown-btn:hover{
+
+    background:#4F46E5;
+    color:#fff;
+}
+
+.submenu{
+
+    list-style:none;
+
+    margin-left:20px;
+
+    margin-top:10px;
+}
+
+.submenu li{
+
+    margin:8px 0;
+}
+
+/* ===========================
+   Content
+=========================== */
+
+.content{
+
+    flex:1;
+
+    padding:35px;
+
+    overflow-y:auto;
+}
+
+.page-header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:30px;
+}
+
+.page-header h2{
+
+    color:#333;
+}
+
+/* ===========================
+   Search
+=========================== */
+
+.search-section{
+
+    margin-bottom:25px;
+}
+
+.search-section input{
+
+    width:100%;
+
+    padding:14px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    outline:none;
+
+    font-size:15px;
+}
+
+.search-section input:focus{
+
+    border-color:#4F46E5;
+}
+
+/* ===========================
+   Filters
+=========================== */
+
+.filter-section{
+
+    display:flex;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+    margin-bottom:30px;
+}
+
+.filter-section select,
+.filter-section button{
+
+    padding:12px 18px;
+
+    border-radius:8px;
+
+    border:1px solid #ccc;
+
+    background:white;
+
+    cursor:pointer;
+}
+
+.filter-section button{
+
+    background:#4F46E5;
+
+    color:white;
+
+    border:none;
+}
+
+.filter-section button:hover{
+
+    background:#3c35ca;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.card,
+.course-card,
+.job-card,
+.forum-card{
+
+    background:white;
+
+    border-radius:12px;
+
+    padding:20px;
+
+    margin-bottom:20px;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+/* ===========================
+   Buttons
+=========================== */
+
+button{
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+button:hover{
+
+    opacity:.9;
+}
+
+/* ===========================
+   Forms
+=========================== */
+
+input,
+select,
+textarea{
+
+    font-size:15px;
+}
+
+/* ===========================
+   Tables
+=========================== */
+
+table{
+
+    width:100%;
+
+    border-collapse:collapse;
+
+    background:white;
+}
+
+th,
+td{
+
+    border:1px solid #ddd;
+
+    padding:15px;
+
+    text-align:center;
+}
+
+th{
+
+    background:#4F46E5;
+
+    color:white;
+}
+
+/* ===========================
+   Responsive
+=========================== */
+
+@media(max-width:992px){
+
+    .sidebar{
+
+        width:200px;
+    }
+
+}
+
+@media(max-width:768px){
+
+    .dashboard-container{
+
+        flex-direction:column;
+    }
+
+    .sidebar{
+
+        width:100%;
+
+        border-right:none;
+
+        border-bottom:1px solid #ddd;
+    }
+
+    .page-header{
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:15px;
+    }
+
+    .filter-section{
+
+        flex-direction:column;
+    }
+
+}
+
+/* ===================================
+   Catalog Page
+=================================== */
+
+.course-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.course-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#fff;
+    border-radius:12px;
+    padding:18px 20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.course-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.course-image{
+    width:90px;
+    height:90px;
+    flex-shrink:0;
+}
+
+.course-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:10px;
+}
+
+.course-details{
+    flex:1;
+    margin-left:20px;
+}
+
+.course-details h3{
+    font-size:20px;
+    color:#333;
+    margin-bottom:8px;
+}
+
+.course-details p{
+    color:#777;
+    font-size:15px;
+}
+
+.course-action{
+    margin-left:20px;
+}
+
+.course-action button{
+    background:#4F46E5;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:12px 28px;
+    font-size:15px;
+}
+
+.course-action button:hover{
+    background:#3b35c4;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .course-card{
+        flex-direction:column;
+        align-items:flex-start;
+        text-align:center;
+    }
+
+    .course-image{
+        margin:auto;
+        margin-bottom:15px;
+    }
+
+    .course-details{
+        margin:0;
+        width:100%;
+    }
+
+    .course-action{
+        margin:20px 0 0;
+        width:100%;
+    }
+
+    .course-action button{
+        width:100%;
+    }
+
+}
+
+/* ===================================
+   Course Details / Virtual Classroom
+=================================== */
+
+.course-layout{
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+}
+
+.module-sidebar{
+    width:260px;
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.module-sidebar h3{
+    color:#333;
+    margin-bottom:20px;
+}
+
+.module-sidebar ul{
+    list-style:none;
+}
+
+.module-sidebar li{
+    margin-bottom:10px;
+}
+
+.module-sidebar a{
+    display:block;
+    padding:12px 15px;
+    border-radius:8px;
+    text-decoration:none;
+    color:#555;
+}
+
+.module-sidebar a:hover{
+    background:#4F46E5;
+    color:#fff;
+}
+
+.course-content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    gap:25px;
+}
+
+.course-outline,
+.lecture-materials{
+    background:#fff;
+    border-radius:12px;
+    padding:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.course-outline h3,
+.lecture-materials h3{
+    color:#333;
+    margin-bottom:20px;
+}
+
+.course-outline ul{
+    list-style:none;
+}
+
+.course-outline li{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 0;
+    border-bottom:1px solid #eee;
+}
+
+.material-card{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.material-card:last-child{
+    margin-bottom:0;
+}
+
+.material-card:hover{
+    border-color:#4F46E5;
+    background:#f8f8ff;
+}
+
+.page-header button{
+    background:#4F46E5;
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:12px 22px;
+}
+
+@media(max-width:768px){
+
+    .course-layout{
+        flex-direction:column;
+    }
+
+    .module-sidebar{
+        width:100%;
+    }
+
+}
+
+/* ===================================
+   Forums Page
+=================================== */
+
+.forum-tabs{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+    border-bottom:1px solid #ddd;
+}
+
+.forum-tabs button{
+    padding:12px 25px;
+    border:none;
+    background:transparent;
+    color:#555;
+    font-size:15px;
+    border-bottom:3px solid transparent;
+}
+
+.forum-tabs button:hover{
+    color:#4F46E5;
+    border-bottom-color:#4F46E5;
+}
+
+/* Community Categories */
+
+.categories{
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.categories h3{
+    margin-bottom:15px;
+    color:#333;
+}
+
+.category-buttons{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.category-buttons button{
+    padding:10px 20px;
+    border:1px solid #4F46E5;
+    border-radius:20px;
+    background:#fff;
+    color:#4F46E5;
+}
+
+.category-buttons button:hover{
+    background:#4F46E5;
+    color:#fff;
+}
+
+/* Forum Posts */
+
+.forum-posts{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+.forum-card{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:0;
+    transition:.3s;
+}
+
+.forum-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+/* Profile Image */
+
+.profile-image{
+    width:55px;
+    height:55px;
+    flex-shrink:0;
+}
+
+.profile-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+}
+
+/* Post Content */
+
+.post-content{
+    flex:1;
+}
+
+.post-content h3{
+    font-size:17px;
+    color:#333;
+    margin-bottom:5px;
+}
+
+.post-content p{
+    color:#777;
+    font-size:14px;
+}
+
+/* Post Button */
+
+.post-action button{
+    padding:10px 20px;
+    border:none;
+    border-radius:8px;
+    background:#4F46E5;
+    color:#fff;
+    font-size:14px;
+}
+
+.post-action button:hover{
+    background:#3b35c4;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .forum-card{
+        align-items:flex-start;
+    }
+
+    .post-action{
+        margin-left:auto;
+    }
+
+}
+
+@media(max-width:500px){
+
+    .forum-card{
+        flex-wrap:wrap;
+    }
+
+    .post-content{
+        min-width:calc(100% - 75px);
+    }
+
+    .post-action{
+        width:100%;
+        margin-left:75px;
+    }
+
+    .post-action button{
+        width:100%;
+    }
+
+}
+
+/* ===================================
+   Calendar Page
+=================================== */
+
+.calendar-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.calendar-header h2{
+    color:#333;
+    margin-bottom:5px;
+}
+
+.calendar-header p{
+    color:#777;
+    font-size:14px;
+}
+
+/* Calendar Controls */
+
+.calendar-controls{
+    display:flex;
+    gap:8px;
+}
+
+.calendar-controls button{
+    padding:10px 16px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:#fff;
+    color:#444;
+}
+
+.calendar-controls button:hover{
+    background:#4F46E5;
+    color:#fff;
+    border-color:#4F46E5;
+}
+
+/* Calendar Table */
+
+.calendar-table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    border-radius:12px;
+    overflow:hidden;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.calendar-table th{
+    padding:15px;
+    background:#4F46E5;
+    color:#fff;
+    font-weight:500;
+}
+
+.calendar-table td{
+    height:110px;
+    padding:12px;
+    vertical-align:top;
+    text-align:left;
+    border:1px solid #eee;
+    color:#444;
+    transition:.2s;
+}
+
+.calendar-table td:hover{
+    background:#f5f5ff;
+}
+
+/* Today's Date */
+
+.calendar-table td.today{
+    background:#eeeeff;
+    color:#4F46E5;
+    font-weight:600;
+}
+
+/* Calendar Events */
+
+.calendar-event{
+    display:block;
+    margin-top:8px;
+    padding:6px 8px;
+    border-radius:5px;
+    background:#4F46E5;
+    color:#fff;
+    font-size:12px;
+    text-decoration:none;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .calendar-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .calendar-table{
+        min-width:700px;
+    }
+
+    .content{
+        overflow-x:auto;
+    }
+
+    .calendar-table td{
+        height:80px;
+        padding:8px;
+    }
+
+}
+
+/* ===================================
+   Career / Job Portal
+=================================== */
+
+.job-list{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.job-card{
+    display:flex;
+    align-items:center;
+    gap:20px;
+    margin-bottom:0;
+    transition:.3s;
+}
+
+.job-card:hover{
+    transform:translateY(-3px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+/* Company Logo */
+
+.company-logo{
+    width:75px;
+    height:75px;
+    flex-shrink:0;
+}
+
+.company-logo img{
+    width:100%;
+    height:100%;
+    object-fit:contain;
+    border-radius:10px;
+}
+
+/* Job Details */
+
+.job-details{
+    flex:1;
+}
+
+.job-details h3{
+    font-size:18px;
+    color:#333;
+    margin-bottom:7px;
+}
+
+.job-details p{
+    color:#777;
+    font-size:14px;
+    margin-bottom:3px;
+}
+
+/* Apply Button */
+
+.job-action button{
+    padding:12px 22px;
+    border:none;
+    border-radius:8px;
+    background:#4F46E5;
+    color:#fff;
+    font-size:14px;
+}
+
+.job-action button:hover{
+    background:#3B35C4;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .job-card{
+        flex-wrap:wrap;
+    }
+
+    .job-details{
+        min-width:calc(100% - 100px);
+    }
+
+    .job-action{
+        width:100%;
+    }
+
+    .job-action button{
+        width:100%;
+    }
+
+}
+
+/* ===================================
+   Profile Page
+=================================== */
+
+.profile-container{
+    display:flex;
+    gap:30px;
+    align-items:flex-start;
+}
+
+/* Profile Sidebar */
+
+.profile-sidebar{
+    width:240px;
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    text-align:center;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.profile-sidebar .profile-image{
+    width:140px;
+    height:140px;
+    margin:0 auto 20px;
+}
+
+.profile-sidebar .profile-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    border-radius:50%;
+    border:3px solid #4F46E5;
+}
+
+.profile-sidebar button{
+    padding:10px 18px;
+    border:1px solid #4F46E5;
+    border-radius:8px;
+    background:#fff;
+    color:#4F46E5;
+}
+
+.profile-sidebar button:hover{
+    background:#4F46E5;
+    color:#fff;
+}
+
+/* Profile Details */
+
+.profile-details{
+    flex:1;
+    background:#fff;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.profile-details form{
+    display:flex;
+    flex-direction:column;
+    gap:20px;
+}
+
+.form-group{
+    display:flex;
+    flex-direction:column;
+    gap:7px;
+}
+
+.form-group label{
+    color:#444;
+    font-size:14px;
+    font-weight:500;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"]{
+    width:100%;
+    padding:12px 14px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+}
+
+.form-group input:focus{
+    border-color:#4F46E5;
+}
+
+/* Checkbox */
+
+.form-group label:has(input[type="checkbox"]){
+    flex-direction:row;
+    align-items:center;
+    gap:10px;
+    cursor:pointer;
+}
+
+.form-group input[type="checkbox"]{
+    width:17px;
+    height:17px;
+    accent-color:#4F46E5;
+}
+
+/* Profile Buttons */
+
+.profile-actions{
+    display:flex;
+    gap:12px;
+    margin-top:10px;
+}
+
+.profile-actions button{
+    padding:12px 22px;
+    border:none;
+    border-radius:8px;
+    background:#4F46E5;
+    color:#fff;
+    font-size:14px;
+}
+
+.profile-actions button:hover{
+    background:#3B35C4;
+}
+
+.profile-actions button[type="button"]{
+    background:#fff;
+    color:#4F46E5;
+    border:1px solid #4F46E5;
+}
+
+.profile-actions button[type="button"]:hover{
+    background:#4F46E5;
+    color:#fff;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .profile-container{
+        flex-direction:column;
+    }
+
+    .profile-sidebar{
+        width:100%;
+    }
+
+    .profile-details{
+        width:100%;
+    }
+
+    .profile-actions{
+        flex-direction:column;
+    }
+
+    .profile-actions button{
+        width:100%;
+    }
+
+}
+
+/* ===================================
+   Help Desk Page
+=================================== */
+
+.faq-section{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    margin-bottom:25px;
+}
+
+.faq-section h3{
+    color:#333;
+    margin-bottom:20px;
+}
+
+/* FAQ Items */
+
+.faq-section details{
+    border-bottom:1px solid #eee;
+    padding:15px 0;
+}
+
+.faq-section details:last-child{
+    border-bottom:none;
+}
+
+.faq-section summary{
+    cursor:pointer;
+    color:#333;
+    font-size:15px;
+    font-weight:500;
+    list-style:none;
+    position:relative;
+    padding-right:25px;
+}
+
+.faq-section summary::-webkit-details-marker{
+    display:none;
+}
+
+.faq-section summary::after{
+    content:"+";
+    position:absolute;
+    right:0;
+    font-size:20px;
+    color:#4F46E5;
+}
+
+.faq-section details[open] summary::after{
+    content:"−";
+}
+
+.faq-section details p{
+    margin-top:12px;
+    color:#777;
+    font-size:14px;
+    line-height:1.6;
+}
+
+/* Support Section */
+
+.support-section{
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.support-section h3{
+    color:#333;
+    margin-bottom:10px;
+}
+
+.support-section p{
+    color:#777;
+    font-size:14px;
+    margin-bottom:20px;
+}
+
+.support-section button{
+    padding:12px 22px;
+    border:none;
+    border-radius:8px;
+    background:#4F46E5;
+    color:#fff;
+    font-size:14px;
+}
+
+.support-section button:hover{
+    background:#3B35C4;
+}
+
+/* ===================================
+   Help Desk Search
+=================================== */
+
+.search-section{
+    margin-bottom:25px;
+}
+
+.search-section input{
+    width:100%;
+    padding:14px 18px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    outline:none;
+    background:#fff;
+}
+
+.search-section input:focus{
+    border-color:#4F46E5;
+    box-shadow:0 0 0 2px rgba(79,70,229,.1);
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .faq-section,
+    .support-section{
+        padding:20px;
+    }
+
+    .faq-section summary{
+        font-size:14px;
+    }
+
+}
+
+/* ===================================
+   Header Search
+=================================== */
+
+.header-search{
+    flex:1;
+    max-width:420px;
+    margin:0 30px;
+}
+
+.header-search input{
+    width:100%;
+    padding:10px 16px;
+    border:none;
+    border-radius:8px;
+    outline:none;
+    font-size:14px;
+    background:rgba(255,255,255,.2);
+    color:#fff;
+}
+
+.header-search input::placeholder{
+    color:rgba(255,255,255,.7);
+}
+
+.header-search input:focus{
+    background:rgba(255,255,255,.3);
+}
+
+/* ===================================
+   Sidebar Extras
+=================================== */
+
+.navigation-title{
+    font-size:12px;
+    letter-spacing:1.5px;
+    color:#999;
+    margin-bottom:20px;
+    text-transform:uppercase;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.logo-icon{
+    width:36px;
+    height:36px;
+    background:#fff;
+    border-radius:10px;
+}
+
+.menu .current-page a{
+    background:#4F46E5;
+    color:#fff;
+}
+
+.dropdown.active .submenu{
+    display:block;
+}
+
+/* ===================================
+   Assignments Page
+=================================== */
+
+/* Filters */
+
+.assignment-filters{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    flex-wrap:wrap;
+    margin-bottom:30px;
+    padding:18px 22px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.assignment-filters label{
+    font-size:14px;
+    font-weight:500;
+    color:#555;
+}
+
+.assignment-filters select{
+    padding:10px 16px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:#fff;
+    color:#333;
+    font-size:14px;
+    outline:none;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.assignment-filters select:focus{
+    border-color:#4F46E5;
+}
+
+/* Pending Submissions */
+
+.pending-submissions,
+.graded-work{
+    margin-bottom:30px;
+}
+
+.pending-submissions h3,
+.graded-work h3{
+    font-size:20px;
+    color:#333;
+    margin-bottom:18px;
+    padding-bottom:10px;
+    border-bottom:2px solid #eee;
+}
+
+/* Assignment Cards */
+
+.assignment-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#fff;
+    border-radius:12px;
+    padding:20px 24px;
+    margin-bottom:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    border-left:4px solid #F59E0B;
+    transition:.3s;
+}
+
+.assignment-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.assignment-info h4{
+    font-size:17px;
+    color:#333;
+    margin-bottom:6px;
+}
+
+.assignment-info p{
+    color:#E05A33;
+    font-size:14px;
+    font-weight:500;
+}
+
+/* Assignment Actions */
+
+.assignment-actions{
+    display:flex;
+    gap:10px;
+}
+
+.assignment-actions button{
+    padding:10px 22px;
+    border:none;
+    border-radius:8px;
+    font-size:14px;
+    font-weight:500;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.assignment-actions button:first-child{
+    background:#fff;
+    color:#4F46E5;
+    border:1px solid #4F46E5;
+}
+
+.assignment-actions button:first-child:hover{
+    background:#4F46E5;
+    color:#fff;
+}
+
+.assignment-actions button:last-child{
+    background:#4F46E5;
+    color:#fff;
+}
+
+.assignment-actions button:last-child:hover{
+    background:#3B35C4;
+}
+
+/* Graded Cards */
+
+.graded-card{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    background:#fff;
+    border-radius:12px;
+    padding:20px 24px;
+    margin-bottom:15px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+    border-left:4px solid #10B981;
+    transition:.3s;
+}
+
+.graded-card:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(0,0,0,.12);
+}
+
+.graded-info h4{
+    font-size:17px;
+    color:#333;
+    margin-bottom:6px;
+}
+
+.graded-info .grade{
+    color:#10B981;
+    font-size:15px;
+    font-weight:600;
+}
+
+/* Feedback Button */
+
+.feedback-action button{
+    padding:10px 22px;
+    border:1px solid #4F46E5;
+    border-radius:8px;
+    background:#fff;
+    color:#4F46E5;
+    font-size:14px;
+    font-weight:500;
+    transition:.3s;
+}
+
+.feedback-action button:hover{
+    background:#4F46E5;
+    color:#fff;
+}
+
+/* Responsive */
+
+@media(max-width:768px){
+
+    .assignment-filters{
+        flex-direction:column;
+        align-items:flex-start;
+    }
+
+    .assignment-card,
+    .graded-card{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .assignment-actions{
+        width:100%;
+    }
+
+    .assignment-actions button{
+        flex:1;
+    }
+
+    .feedback-action{
+        width:100%;
+    }
+
+    .feedback-action button{
+        width:100%;
+    }
+
+    .header-search{
+        display:none;
+    }
+
+}

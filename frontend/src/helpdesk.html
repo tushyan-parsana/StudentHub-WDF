@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk | StudentHub</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h1>StudentHub</h1>
+        </div>
+
+        <div class="header-icons">
+
+            <button class="notification-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li><a href="dashboard.html">Dashboard</a></li>
+
+                    <li class="dropdown">
+
+                        <button class="dropdown-btn">
+                            Academics ▼
+                        </button>
+
+                        <ul class="submenu">
+
+                            <li><a href="catalog.html">Catalog</a></li>
+
+                            <li><a href="course-detail.html">My Courses</a></li>
+
+                            <li><a href="assignments.html">Assignments</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li><a href="calender.html">Events</a></li>
+
+                    <li><a href="career.html">Career</a></li>
+
+                    <li><a href="forums.html">Forums</a></li>
+
+                    <li><a href="helpdesk.html">Help Desk</a></li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <section class="content">
+
+            <!-- Page Header -->
+            <header class="page-header">
+
+                <h2>Help Desk</h2>
+
+            </header>
+
+            <!-- Search -->
+            <section class="search-section">
+
+                <input
+                    type="search"
+                    name="search"
+                    placeholder="Search FAQs...">
+
+            </section>
+
+            <!-- FAQ Section -->
+            <section class="faq-section">
+
+                <h3>Frequently Asked Questions</h3>
+
+                <details>
+
+                    <summary>
+                        How do I reset my password?
+                    </summary>
+
+                    <p>
+                        Click on the "Forgot Password" link on the login page
+                        and follow the instructions sent to your email.
+                    </p>
+
+                </details>
+
+                <details>
+
+                    <summary>
+                        How do I enroll in a course?
+                    </summary>
+
+                    <p>
+                        Visit the Course Catalog, choose a course,
+                        and click the <strong>Add</strong> button.
+                    </p>
+
+                </details>
+
+                <details>
+
+                    <summary>
+                        How can I contact my faculty?
+                    </summary>
+
+                    <p>
+                        Open the course page and use the faculty contact
+                        information provided.
+                    </p>
+
+                </details>
+
+                <details>
+
+                    <summary>
+                        Where can I see my assignments?
+                    </summary>
+
+                    <p>
+                        Navigate to <strong>Academics → Assignments</strong>
+                        from the sidebar.
+                    </p>
+
+                </details>
+
+            </section>
+
+            <!-- Contact Support -->
+            <section class="support-section">
+
+                <h3>Still Need Help?</h3>
+
+                <p>
+                    Submit a support request and our Help Desk team will
+                    contact you shortly.
+                </p>
+
+                <button type="button">
+                    Open Support Ticket
+                </button>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
