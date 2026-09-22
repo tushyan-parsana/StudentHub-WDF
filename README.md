@@ -21,8 +21,8 @@
 
 | Module        | Highlights                                                       |
 | ------------- | ---------------------------------------------------------------- |
-| **Auth**      | Login & Forgot-Password flows                                    |
-| **Dashboard** | Welcome banner, upcoming deadlines, today's schedule, announcements |
+| **Auth**      | Login, registration, and Forgot-Password flows                   |
+| **Dashboard** | Welcome banner, upcoming deadlines, today's schedule, announcements, slider, theme toggle, and mobile menu |
 | **Academics** | Course catalog → Course detail → Assignments (nested navigation) |
 | **Events**    | Calendar view of campus events                                   |
 | **Career**    | Job & internship portal with search, filters, and apply actions  |
@@ -71,6 +71,7 @@ StudentHub/
         │   └── dashboard_updated.css  # Revised/alternate dashboard styles
         │
         ├── login.html                 # Login page (entry point)
+        ├── registration.html          # Validated student registration form
         ├── forgot.html                # Forgot-password page
         ├── dashboard.html             # Main dashboard
         ├── catalog.html               # Course catalog
@@ -137,6 +138,7 @@ StudentHub/
 ### 🔐 Authentication
 
 - **Login** (`login.html`) — Split-panel layout with branding on the left and a login form (email + password) on the right. Successful login redirects to the Dashboard.
+- **Registration** (`registration.html`) — Accessible student registration form with HTML5 input types, regular-expression validation, password strength feedback, confirmation matching, and terms acceptance.
 - **Forgot Password** (`forgot.html`) — Simple email-entry form that sends a password-reset link. Includes a back-to-login navigation.
 
 ### 📊 Dashboard (`dashboard.html`)
@@ -155,6 +157,16 @@ The main landing page after authentication. Features:
 ### 📅 Events (`calender.html`)
 
 Calendar view for campus events, workshops, and important dates.
+
+### 🧩 Shared UI Interactions
+
+Several pages now share a common JavaScript layer for:
+- collapsible FAQ items on HelpDesk
+- modal popup for the profile button
+- notification banner feedback
+- responsive hamburger menu on smaller screens
+- light/dark theme persistence with `localStorage`
+- a small content slider on the dashboard
 
 ### 💼 Career Portal (`career.html`)
 

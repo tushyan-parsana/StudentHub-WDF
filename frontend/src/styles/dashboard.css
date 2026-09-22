@@ -126,12 +126,21 @@ body{
 }
 
 .submenu{
-
+    display:none;
     list-style:none;
 
     margin-left:20px;
 
     margin-top:10px;
+}
+
+.menu-toggle{
+    display:none;
+    border:0;
+    background:transparent;
+    color:#fff;
+    font-size:25px;
+    padding:4px 8px;
 }
 
 .submenu li{
@@ -1179,6 +1188,108 @@ th{
     line-height:1.6;
 }
 
+/* ===================================
+   FAQ DOM Accordion
+=================================== */
+
+.faq-item{
+    border-bottom:1px solid #eee;
+}
+
+.faq-question{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 0;
+
+    border:none;
+    background:none;
+
+    color:#333;
+    font-size:15px;
+    font-weight:500;
+
+    text-align:left;
+}
+
+.faq-question:hover{
+    color:#4F46E5;
+}
+
+.faq-icon{
+    font-size:20px;
+    color:#4F46E5;
+}
+
+.faq-answer{
+    display:none;
+    padding:0 0 15px;
+}
+
+.faq-answer p{
+    margin:0;
+    color:#777;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
+}
+
+/* ===================================
+   FAQ DOM Accordion
+=================================== */
+
+.faq-item{
+    border-bottom:1px solid #eee;
+}
+
+.faq-question{
+    width:100%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:15px 0;
+
+    border:none;
+    background:none;
+
+    color:#333;
+    font-size:15px;
+    font-weight:500;
+
+    text-align:left;
+}
+
+.faq-question:hover{
+    color:#4F46E5;
+}
+
+.faq-icon{
+    font-size:20px;
+    color:#4F46E5;
+}
+
+.faq-answer{
+    display:none;
+    padding:0 0 15px;
+}
+
+.faq-answer p{
+    margin:0;
+    color:#777;
+    font-size:14px;
+    line-height:1.6;
+}
+
+.faq-item.active .faq-answer{
+    display:block;
+}
+
 /* Support Section */
 
 .support-section{
@@ -1310,6 +1421,214 @@ th{
 
 .dropdown.active .submenu{
     display:block;
+}
+
+/* ===================================
+   Practical 4 Interactive Components
+=================================== */
+
+.dashboard-slider{
+    background:#fff;
+    border-radius:12px;
+    padding:20px;
+    margin-top:25px;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.slider-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
+}
+
+.slider-controls{
+    display:flex;
+    gap:8px;
+}
+
+.slider-controls button,
+.slide-dots button{
+    border:1px solid #4F46E5;
+    background:#fff;
+    color:#4F46E5;
+    border-radius:50%;
+    width:30px;
+    height:30px;
+}
+
+.slides{
+    min-height:75px;
+}
+
+.slide{
+    display:none;
+}
+
+.slide.active{
+    display:block;
+}
+
+.slide h4{
+    color:#333;
+    margin-bottom:5px;
+}
+
+.slide p{
+    color:#777;
+    font-size:14px;
+}
+
+.slide-dots{
+    display:flex;
+    gap:6px;
+    margin-top:12px;
+}
+
+.slide-dots button{
+    width:9px;
+    height:9px;
+    padding:0;
+    background:#ddd;
+    border:0;
+}
+
+.slide-dots button.active{
+    background:#4F46E5;
+}
+
+.notification-banner{
+    position:fixed;
+    top:85px;
+    right:25px;
+    z-index:20;
+    padding:14px 20px;
+    border-radius:8px;
+    background:#1f2937;
+    color:#fff;
+    opacity:0;
+    transform:translateY(-10px);
+    pointer-events:none;
+    transition:.25s ease;
+}
+
+.notification-banner.visible{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.modal-backdrop{
+    display:flex;
+    position:fixed;
+    inset:0;
+    z-index:30;
+    align-items:center;
+    justify-content:center;
+    padding:20px;
+    background:rgba(0,0,0,.5);
+    opacity:0;
+    visibility:hidden;
+    transition:.2s ease;
+}
+
+.modal-backdrop.visible{
+    opacity:1;
+    visibility:visible;
+}
+
+.modal{
+    position:relative;
+    width:min(100%,420px);
+    padding:28px;
+    border-radius:12px;
+    background:#fff;
+    box-shadow:0 12px 35px rgba(0,0,0,.2);
+}
+
+.modal h3{
+    color:#333;
+    margin-bottom:8px;
+}
+
+.modal p{
+    color:#666;
+}
+
+.modal-close{
+    position:absolute;
+    top:8px;
+    right:12px;
+    border:0;
+    background:transparent;
+    color:#777;
+    font-size:25px;
+}
+
+body.dark-theme{
+    background:#111827;
+    color:#e5e7eb;
+}
+
+body.dark-theme .sidebar,
+body.dark-theme .card,
+body.dark-theme .course-card,
+body.dark-theme .job-card,
+body.dark-theme .forum-card,
+body.dark-theme .faq-section,
+body.dark-theme .support-section,
+body.dark-theme .dashboard-slider,
+body.dark-theme .modal{
+    background:#1f2937;
+    color:#e5e7eb;
+}
+
+body.dark-theme .page-header h2,
+body.dark-theme .welcome h2,
+body.dark-theme .card h3,
+body.dark-theme .slide h4,
+body.dark-theme .modal h3,
+body.dark-theme .faq-question{
+    color:#f9fafb;
+}
+
+body.dark-theme .menu a,
+body.dark-theme .dropdown-btn,
+body.dark-theme .slide p,
+body.dark-theme .modal p{
+    color:#d1d5db;
+}
+
+@media(max-width:768px){
+    .header{
+        padding:0 15px;
+    }
+
+    .menu-toggle{
+        display:block;
+    }
+
+    .header-icons{
+        gap:6px;
+    }
+
+    .header-icons button{
+        width:38px;
+        height:38px;
+    }
+
+    .sidebar{
+        display:none;
+    }
+
+    .sidebar.open{
+        display:block;
+    }
+
+    .notification-banner{
+        left:15px;
+        right:15px;
+        top:80px;
+    }
 }
 
 /* ===================================
@@ -1523,4 +1842,4 @@ th{
         display:none;
     }
 
-}
+}

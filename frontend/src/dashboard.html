@@ -17,11 +17,13 @@
         </div>
 
         <div class="header-icons">
-            <button class="notification-btn">
+            <button class="theme-toggle" type="button" aria-label="Switch to dark theme">🌙</button>
+
+            <button class="notification-btn" type="button" aria-label="Show notifications">
                 🔔
             </button>
 
-            <button class="profile-btn">
+            <button class="profile-btn" type="button" aria-label="Open profile">
                 👤
             </button>
         </div>
@@ -147,11 +149,35 @@
 
             </section>
 
+            <section class="dashboard-slider" aria-label="Student updates">
+                <div class="slider-header">
+                    <h3>Student Updates</h3>
+                    <div class="slider-controls">
+                        <button class="slider-prev" type="button" aria-label="Previous update">‹</button>
+                        <button class="slider-next" type="button" aria-label="Next update">›</button>
+                    </div>
+                </div>
+                <div class="slides">
+                    <article class="slide active">
+                        <h4>New semester resources</h4>
+                        <p>Explore the latest study material from your course pages.</p>
+                    </article>
+                    <article class="slide">
+                        <h4>Career workshop</h4>
+                        <p>Register for the upcoming resume and interview workshop.</p>
+                    </article>
+                    <article class="slide">
+                        <h4>Stay on track</h4>
+                        <p>Check your assignments regularly so no deadline is missed.</p>
+                    </article>
+                </div>
+                <div class="slide-dots" aria-label="Choose an update"></div>
+            </section>
+
         </section>
 
     </main>
 
     <script src="script.js"></script>
-
 </body>
 </html>

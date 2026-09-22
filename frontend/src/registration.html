@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | StudentHub</title>
+    <link rel="stylesheet" href="styles/registration.css">
+</head>
+<body>
+    <main class="registration-layout">
+        <section class="registration-branding" aria-label="StudentHub introduction">
+            <h1>StudentHub</h1>
+            <p>Create your student account and keep your academic journey organized.</p>
+        </section>
+
+        <section class="registration-panel">
+            <form id="registration-form" class="registration-card" novalidate>
+                <h2>Create account</h2>
+                <p class="form-intro">All fields are required unless marked optional.</p>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="full-name">Full name</label>
+                        <input id="full-name" name="fullName" type="text" autocomplete="name"
+                            pattern="[A-Za-z][A-Za-z .'-]{2,49}" required aria-describedby="full-name-error">
+                        <small id="full-name-error" class="error-message"></small>
+                    </div>
+                    <div class="field">
+                        <label for="email">Email address</label>
+                        <input id="email" name="email" type="email" autocomplete="email" required
+                            aria-describedby="email-error">
+                        <small id="email-error" class="error-message"></small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="mobile">Mobile number</label>
+                        <input id="mobile" name="mobile" type="tel" inputmode="numeric"
+                            pattern="[0-9]{10}" maxlength="10" autocomplete="tel" required
+                            aria-describedby="mobile-error">
+                        <small id="mobile-error" class="error-message"></small>
+                    </div>
+                    <div class="field">
+                        <label for="course">Course</label>
+                        <select id="course" name="course" required aria-describedby="course-error">
+                            <option value="">Select course</option>
+                            <option value="bca">BCA</option>
+                            <option value="btech">B.Tech</option>
+                            <option value="bba">BBA</option>
+                            <option value="other">Other</option>
+                        </select>
+                        <small id="course-error" class="error-message"></small>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="field">
+                        <label for="year">Year</label>
+                        <select id="year" name="year" required aria-describedby="year-error">
+                            <option value="">Select year</option>
+                            <option value="1">First year</option>
+                            <option value="2">Second year</option>
+                            <option value="3">Third year</option>
+                            <option value="4">Fourth year</option>
+                        </select>
+                        <small id="year-error" class="error-message"></small>
+                    </div>
+                    <fieldset class="field gender-field">
+                        <legend>Gender</legend>
+                        <div class="radio-options">
+                            <label><input type="radio" name="gender" value="female"> Female</label>
+                            <label><input type="radio" name="gender" value="male"> Male</label>
+                            <label><input type="radio" name="gender" value="other"> Other</label>
+                        </div>
+                        <small id="gender-error" class="error-message"></small>
+                    </fieldset>
+                </div>
+
+                <div class="field">
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" autocomplete="new-password"
+                        required aria-describedby="password-help password-error">
+                    <div id="password-help" class="password-help">Use 8+ characters with uppercase, lowercase, a number, and a special character.</div>
+                    <div class="strength-track" aria-hidden="true"><span id="strength-bar"></span></div>
+                    <small id="password-strength" class="strength-label" aria-live="polite"></small>
+                    <small id="password-error" class="error-message"></small>
+                </div>
+
+                <div class="field">
+                    <label for="confirm-password">Confirm password</label>
+                    <input id="confirm-password" name="confirmPassword" type="password"
+                        autocomplete="new-password" required aria-describedby="confirm-password-error">
+                    <small id="confirm-password-error" class="error-message"></small>
+                </div>
+
+                <label class="terms-label">
+                    <input id="terms" name="terms" type="checkbox" required aria-describedby="terms-error">
+                    <span>I agree to the StudentHub terms and conditions.</span>
+                </label>
+                <small id="terms-error" class="error-message"></small>
+
+                <button type="submit">Create account</button>
+                <p id="form-success" class="success-message" role="status" aria-live="polite"></p>
+                <a href="login.html" class="back-link">Already have an account? Log in</a>
+            </form>
+        </section>
+    </main>
+    <script src="registration.js"></script>
+</body>
+</html>
