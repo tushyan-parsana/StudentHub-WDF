@@ -1,0 +1,17 @@
+[
+  {"id":1,"name":"Aarav Shah","course":"B.Tech","year":2,"department":"Computer Science","status":"Active"},
+  {"id":2,"name":"Ananya Patel","course":"BBA","year":1,"department":"Management","status":"Active"},
+  {"id":3,"name":"Rohan Mehta","course":"BCA","year":3,"department":"Computer Applications","status":"Active"},
+  {"id":4,"name":"Isha Desai","course":"B.Tech","year":4,"department":"Information Technology","status":"Active"},
+  {"id":5,"name":"Kabir Joshi","course":"BBA","year":2,"department":"Finance","status":"Active"},
+  {"id":6,"name":"Meera Nair","course":"BCA","year":2,"department":"Computer Applications","status":"Active"},
+  {"id":7,"name":"Vivaan Shah","course":"B.Tech","year":1,"department":"Electronics","status":"Active"},
+  {"id":8,"name":"Diya Trivedi","course":"BBA","year":3,"department":"Marketing","status":"On leave"},
+  {"id":9,"name":"Arjun Rao","course":"BCA","year":1,"department":"Computer Applications","status":"Active"},
+  {"id":10,"name":"Sara Khan","course":"B.Tech","year":3,"department":"Mechanical Engineering","status":"Active"},
+  {"id":11,"name":"Aditya Shah","course":"BBA","year":4,"department":"Management","status":"Active"},
+  {"id":12,"name":"Kiara Patel","course":"BCA","year":4,"department":"Computer Applications","status":"Active"},
+  {"id":13,"name":"Neil Verma","course":"B.Tech","year":2,"department":"Civil Engineering","status":"Active"},
+  {"id":14,"name":"Anvi Rao","course":"BBA","year":1,"department":"Human Resources","status":"Active"},
+  {"id":15,"name":"Yash Mehta","course":"BCA","year":3,"department":"Computer Applications","status":"Graduating"}
+]

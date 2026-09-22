@@ -1,0 +1,17 @@
+[
+  {"id":1,"title":"Orientation Day","category":"Academic","date":"2026-09-28","location":"Main Auditorium"},
+  {"id":2,"title":"Library Research Workshop","category":"Workshop","date":"2026-09-30","location":"Central Library"},
+  {"id":3,"title":"Coding Club Meetup","category":"Community","date":"2026-10-02","location":"Lab 3"},
+  {"id":4,"title":"Midterm Registration","category":"Academic","date":"2026-10-05","location":"Student Office"},
+  {"id":5,"title":"Resume Building Session","category":"Career","date":"2026-10-07","location":"Seminar Hall"},
+  {"id":6,"title":"Inter-college Debate","category":"Community","date":"2026-10-09","location":"Open Theatre"},
+  {"id":7,"title":"Alumni Networking Evening","category":"Career","date":"2026-10-12","location":"Conference Room"},
+  {"id":8,"title":"Web Development Lab","category":"Workshop","date":"2026-10-14","location":"Lab 1"},
+  {"id":9,"title":"Sports Trials","category":"Sports","date":"2026-10-16","location":"Sports Ground"},
+  {"id":10,"title":"Scholarship Guidance","category":"Academic","date":"2026-10-19","location":"Student Office"},
+  {"id":11,"title":"Photography Walk","category":"Community","date":"2026-10-21","location":"North Gate"},
+  {"id":12,"title":"Mock Interview Day","category":"Career","date":"2026-10-23","location":"Placement Cell"},
+  {"id":13,"title":"Design Thinking Workshop","category":"Workshop","date":"2026-10-26","location":"Innovation Hub"},
+  {"id":14,"title":"Cultural Fest Auditions","category":"Community","date":"2026-10-28","location":"Cultural Hall"},
+  {"id":15,"title":"Semester Review","category":"Academic","date":"2026-10-30","location":"Main Auditorium"}
+]

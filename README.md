@@ -25,6 +25,7 @@
 | **Dashboard** | Welcome banner, upcoming deadlines, today's schedule, announcements, slider, theme toggle, and mobile menu |
 | **Academics** | Course catalog → Course detail → Assignments (nested navigation) |
 | **Events**    | Calendar view of campus events                                   |
+| **JSON Explorer** | Fetch JSON data with search, filters, sorting, and pagination |
 | **Career**    | Job & internship portal with search, filters, and apply actions  |
 | **Forums**    | Community discussion boards                                      |
 | **HelpDesk**  | Campus support & ticket submission                               |
@@ -74,6 +75,9 @@ StudentHub/
         ├── registration.html          # Validated student registration form
         ├── forgot.html                # Forgot-password page
         ├── dashboard.html             # Main dashboard
+        ├── json-data.html             # Fetch API data explorer
+        ├── json-data.js               # JSON loading and rendering logic
+        ├── data/                      # Events, students, and FAQ JSON datasets
         ├── catalog.html               # Course catalog
         ├── course-detail.html         # Individual course details
         ├── assignments.html           # Assignments list / submission
