@@ -1420,7 +1420,7 @@ th{
 }
 
 /* ===================================
-   JSON Data Explorer
+   External JSON Data
 =================================== */
 
 .json-explorer .page-header p{
@@ -1505,6 +1505,17 @@ th{
     color:#777;
     font-size:13px;
     line-height:1.5;
+}
+
+.listing-action{
+    margin-top:12px;
+    padding:8px 13px;
+    border:0;
+    border-radius:7px;
+    background:#4F46E5;
+    color:#fff;
+    cursor:pointer;
+    font-size:12px;
 }
 
 .json-badge{

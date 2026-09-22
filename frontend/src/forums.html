@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
-<body>
+<body data-json-page="forums">
 
     <!-- Header -->
     <header class="header">
@@ -116,85 +116,26 @@
             </section>
 
             <!-- Forum Posts -->
-            <section class="forum-posts">
-
-                <!-- Post 1 -->
-                <article class="forum-card">
-
-                    <div class="profile-image">
-
-                        <img
-                            src="images/profile-placeholder.png"
-                            alt="User">
-
-                    </div>
-
-                    <div class="post-content">
-
-                        <h3>Recently Graded Work</h3>
-
-                        <p>Paper films</p>
-
-                    </div>
-
-                    <div class="post-action">
-
-                        <button type="button">
-                            Decision
-                        </button>
-
-                    </div>
-
-                </article>
-
-                <!-- Post 2 -->
-                <article class="forum-card">
-
-                    <div class="profile-image">
-
-                        <img
-                            src="images/profile-placeholder.png"
-                            alt="User">
-
-                    </div>
-
-                    <div class="post-content">
-
-                        <h3>Community Online Post</h3>
-
-                        <p>Announcements</p>
-
-                    </div>
-
-                    <div class="post-action">
-
-                        <button type="button">
-                            Decision
-                        </button>
-
-                    </div>
-
-                </article>
-
-                <!-- Post 3 -->
-                <article class="forum-card">
-
-                    <div class="profile-image">
-
-                        <img
-                            src="images/profile-placeholder.png"
-                            alt="User">
-
-                    </div>
-
-                    <div class="post-content">
-
-                        <h3>Community Communication Post</h3>
-
-                    </div>
-
-                </article>
-
+            <section class="json-data-section">
+                <div class="data-controls">
+                    <label for="json-search">Search discussions</label>
+                    <input id="json-search" type="search" placeholder="Search discussions..." autocomplete="off">
+                    <label for="json-filter">Filter</label>
+                    <select id="json-filter"><option value="all">All categories</option></select>
+                    <label for="json-sort">Sort</label>
+                    <select id="json-sort">
+                        <option value="default">Default order</option>
+                        <option value="asc">A to Z</option>
+                        <option value="desc">Z to A</option>
+                    </select>
+                </div>
+                <p id="json-status" class="data-status" role="status">Loading discussions...</p>
+                <div id="json-list" class="data-list"></div>
+                <nav class="pagination" aria-label="Forum pages">
+                    <button id="json-previous" type="button">Previous</button>
+                    <span id="json-page-summary">Page 1</span>
+                    <button id="json-next" type="button">Next</button>
+                </nav>
             </section>
 
         </section>
@@ -202,6 +143,7 @@
     </main>
 
     <script src="script.js"></script>
+    <script src="data-render.js"></script>
 
 </body>
 </html>

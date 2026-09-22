@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Calendar | StudentHub</title>
+    <title>Campus Events | StudentHub</title>
 
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
-<body>
+<body data-json-page="events">
 
     <!-- Header -->
     <header class="header">
@@ -42,8 +42,6 @@
 
                     <li><a href="dashboard.html">Dashboard</a></li>
 
-                    <li><a href="json-data.html">JSON Explorer</a></li>
-
                     <li class="dropdown">
 
                         <button class="dropdown-btn">
@@ -77,120 +75,40 @@
         <!-- Main Content -->
         <section class="content">
 
-            <header class="calendar-header">
-
-                <div>
-
-                    <h2>Campus Calendar</h2>
-
-                    <p>October 2025</p>
-
+            <section class="json-data-section">
+                <header class="page-header">
+                    <div>
+                        <h2>Campus Events</h2>
+                        <p>Browse upcoming academic, career, community, and workshop events.</p>
+                    </div>
+                </header>
+                <div class="data-controls">
+                    <label for="json-search">Search events</label>
+                    <input id="json-search" type="search" placeholder="Search events..." autocomplete="off">
+                    <label for="json-filter">Filter</label>
+                    <select id="json-filter"><option value="all">All categories</option></select>
+                    <label for="json-sort">Sort</label>
+                    <select id="json-sort">
+                        <option value="default">Default order</option>
+                        <option value="asc">A to Z</option>
+                        <option value="desc">Z to A</option>
+                    </select>
                 </div>
-
-                <div class="calendar-controls">
-
-                    <button type="button">&lt;</button>
-
-                    <button type="button">Week</button>
-
-                    <button type="button">Month</button>
-
-                    <button type="button">&gt;</button>
-
-                </div>
-
-            </header>
-
-            <!-- Calendar -->
-            <table class="calendar-table">
-
-                <thead>
-
-                    <tr>
-
-                        <th>Sun</th>
-                        <th>Mon</th>
-                        <th>Tue</th>
-                        <th>Wed</th>
-                        <th>Thu</th>
-                        <th>Fri</th>
-                        <th>Sat</th>
-
-                    </tr>
-
-                </thead>
-
-                <tbody>
-
-                    <tr>
-
-                        <td></td>
-                        <td>1</td>
-                        <td>2</td>
-                        <td>3</td>
-                        <td>4</td>
-                        <td>5</td>
-                        <td>6</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>7</td>
-                        <td>8</td>
-                        <td>9</td>
-                        <td>10</td>
-                        <td>11</td>
-                        <td>12</td>
-                        <td>13</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>14</td>
-                        <td>15</td>
-                        <td>16</td>
-                        <td>17</td>
-                        <td>18</td>
-                        <td>19</td>
-                        <td>20</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>21</td>
-                        <td>22</td>
-                        <td>23</td>
-                        <td>24</td>
-                        <td>25</td>
-                        <td>26</td>
-                        <td>27</td>
-
-                    </tr>
-
-                    <tr>
-
-                        <td>28</td>
-                        <td>29</td>
-                        <td>30</td>
-                        <td>31</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
+                <p id="json-status" class="data-status" role="status">Loading events...</p>
+                <div id="json-list" class="data-list"></div>
+                <nav class="pagination" aria-label="Event pages">
+                    <button id="json-previous" type="button">Previous</button>
+                    <span id="json-page-summary">Page 1</span>
+                    <button id="json-next" type="button">Next</button>
+                </nav>
+            </section>
 
         </section>
 
     </main>
 
     <script src="script.js"></script>
+    <script src="data-render.js"></script>
 
 </body>
 </html>

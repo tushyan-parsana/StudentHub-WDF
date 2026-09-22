@@ -25,7 +25,7 @@
 | **Dashboard** | Welcome banner, upcoming deadlines, today's schedule, announcements, slider, theme toggle, and mobile menu |
 | **Academics** | Course catalog → Course detail → Assignments (nested navigation) |
 | **Events**    | Calendar view of campus events                                   |
-| **JSON Explorer** | Fetch JSON data with search, filters, sorting, and pagination |
+| **Events / Forums / HelpDesk** | Fetch JSON data for events, student discussions, notices, and FAQs with search, filters, sorting, and pagination |
 | **Career**    | Job & internship portal with search, filters, and apply actions  |
 | **Forums**    | Community discussion boards                                      |
 | **HelpDesk**  | Campus support & ticket submission                               |
@@ -75,9 +75,8 @@ StudentHub/
         ├── registration.html          # Validated student registration form
         ├── forgot.html                # Forgot-password page
         ├── dashboard.html             # Main dashboard
-        ├── json-data.html             # Fetch API data explorer
-        ├── json-data.js               # JSON loading and rendering logic
-        ├── data/                      # Events, students, and FAQ JSON datasets
+        ├── data-render.js             # Shared Fetch API rendering logic
+        ├── data/                      # Events, forum, notices, student, and FAQ JSON datasets
         ├── catalog.html               # Course catalog
         ├── course-detail.html         # Individual course details
         ├── assignments.html           # Assignments list / submission
@@ -163,6 +162,16 @@ The main landing page after authentication. Features:
 Calendar view for campus events, workshops, and important dates.
 
 ### 🧩 Shared UI Interactions
+
+### 📦 JSON-backed application pages
+
+The existing Events, Forums, and Help Desk pages consume external JSON files with the Fetch API and dynamically display:
+- campus event lists from `data/events.json`
+- forum discussions from `data/forums.json`
+- FAQs from `data/faqs.json`
+- notices and student profile data remain available in `data/notices.json` and `data/students.json` for application views.
+
+Each data set supports search, category filtering, sorting, and pagination with visible loading and error states.
 
 Several pages now share a common JavaScript layer for:
 - collapsible FAQ items on HelpDesk

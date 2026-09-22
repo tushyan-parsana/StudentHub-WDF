@@ -1,0 +1,17 @@
+[
+  {"id":1,"title":"Semester registration deadline extended","category":"Academic","date":"2026-09-25","audience":"All students","summary":"Students can complete semester registration until 5:00 PM."},
+  {"id":2,"title":"Library hours extended during examinations","category":"Campus","date":"2026-09-27","audience":"All students","summary":"The central library will remain open until 10:00 PM."},
+  {"id":3,"title":"Scholarship applications are now open","category":"Financial Aid","date":"2026-09-30","audience":"Eligible students","summary":"Submit scholarship documents through the student office portal."},
+  {"id":4,"title":"Campus network maintenance","category":"Technical","date":"2026-10-02","audience":"All students","summary":"Online services may be unavailable between 11:00 PM and 1:00 AM."},
+  {"id":5,"title":"Updated examination timetable published","category":"Academic","date":"2026-10-04","audience":"All students","summary":"Check the examination section for the latest timetable."},
+  {"id":6,"title":"Student ID card collection","category":"Administration","date":"2026-10-06","audience":"New students","summary":"Collect your ID card from the student office with valid identification."},
+  {"id":7,"title":"Blood donation drive registration","category":"Community","date":"2026-10-08","audience":"All students","summary":"Register online to participate in the campus blood donation drive."},
+  {"id":8,"title":"Hostel maintenance schedule","category":"Campus","date":"2026-10-10","audience":"Hostel residents","summary":"Maintenance teams will visit blocks A and B this weekend."},
+  {"id":9,"title":"Internship orientation session","category":"Career","date":"2026-10-13","audience":"Final-year students","summary":"Placement Cell will explain the internship application process."},
+  {"id":10,"title":"Updated attendance policy","category":"Academic","date":"2026-10-15","audience":"All students","summary":"Read the revised attendance policy before course registration."},
+  {"id":11,"title":"Student council nominations","category":"Community","date":"2026-10-17","audience":"All students","summary":"Nominations are open for the student council representative positions."},
+  {"id":12,"title":"Career fair employer list released","category":"Career","date":"2026-10-20","audience":"Eligible students","summary":"Review participating employers and prepare your updated resume."},
+  {"id":13,"title":"Fire safety drill notice","category":"Safety","date":"2026-10-22","audience":"All students","summary":"A scheduled fire safety drill will take place after the morning lecture."},
+  {"id":14,"title":"Fee payment reminder","category":"Finance","date":"2026-10-25","audience":"All students","summary":"Complete pending fee payments to avoid registration holds."},
+  {"id":15,"title":"Winter break schedule announced","category":"Academic","date":"2026-10-29","audience":"All students","summary":"The academic calendar now includes the winter break dates."}
+]

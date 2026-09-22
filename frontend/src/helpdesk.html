@@ -7,7 +7,7 @@
 
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
-<body>
+<body data-json-page="faqs">
 
     <!-- Header -->
     <header class="header">
@@ -84,71 +84,28 @@
 
             </header>
 
-            <!-- Search -->
-            <section class="search-section">
-
-                <input
-                    type="search"
-                    name="search"
-                    placeholder="Search FAQs...">
-
+            <section class="faq-section json-data-section">
+                <h3>FAQs</h3>
+                <div class="data-controls">
+                    <label for="json-search">Search FAQs</label>
+                    <input id="json-search" type="search" placeholder="Search FAQs..." autocomplete="off">
+                    <label for="json-filter">Filter</label>
+                    <select id="json-filter"><option value="all">All categories</option></select>
+                    <label for="json-sort">Sort</label>
+                    <select id="json-sort">
+                        <option value="default">Default order</option>
+                        <option value="asc">A to Z</option>
+                        <option value="desc">Z to A</option>
+                    </select>
+                </div>
+                <p id="json-status" class="data-status" role="status">Loading FAQs...</p>
+                <div id="json-list" class="data-list"></div>
+                <nav class="pagination" aria-label="FAQ pages">
+                    <button id="json-previous" type="button">Previous</button>
+                    <span id="json-page-summary">Page 1</span>
+                    <button id="json-next" type="button">Next</button>
+                </nav>
             </section>
-
-            <section class="faq-section">
-
-        <h3>FAQs</h3>
-
-        <div class="faq-item">
-
-            <button class="faq-question" type="button">
-                How do I reset my password?
-                <span class="faq-icon">+</span>
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    Go to the login page and click on
-                    "Forgot your password?" to reset your password.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button class="faq-question" type="button">
-                How do I enroll in a course?
-                <span class="faq-icon">+</span>
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    Open the Catalog page, select the course you want,
-                    and click the Add button.
-                </p>
-            </div>
-
-        </div>
-
-
-        <div class="faq-item">
-
-            <button class="faq-question" type="button">
-                Where can I find my assignments?
-                <span class="faq-icon">+</span>
-            </button>
-
-            <div class="faq-answer">
-                <p>
-                    Open Academics and select Assignments from the
-                    navigation menu.
-                </p>
-            </div>
-
-        </div>
-
-    </section>
 
             <!-- Contact Support -->
             <section class="support-section">
@@ -171,6 +128,7 @@
     </main>
 
     <script src="script.js"></script>
+    <script src="data-render.js"></script>
 
 </body>
 </html>
