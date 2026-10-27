@@ -1,0 +1,17 @@
+[
+  {"id":1,"title":"How should I prepare for the Web Development practical?","category":"Academics","author":"Aarav Shah","replies":12},
+  {"id":2,"title":"Best resources for learning React","category":"Technology","author":"Meera Nair","replies":8},
+  {"id":3,"title":"Looking for teammates for the hackathon","category":"Community","author":"Rohan Mehta","replies":15},
+  {"id":4,"title":"Share your internship application tips","category":"Career","author":"Isha Desai","replies":6},
+  {"id":5,"title":"Can someone explain the assignment rubric?","category":"Academics","author":"Kabir Joshi","replies":4},
+  {"id":6,"title":"Campus photography club meetup","category":"Community","author":"Diya Trivedi","replies":9},
+  {"id":7,"title":"Which database should beginners learn first?","category":"Technology","author":"Neil Verma","replies":11},
+  {"id":8,"title":"Resume review exchange","category":"Career","author":"Sara Khan","replies":7},
+  {"id":9,"title":"Tips for managing exam preparation","category":"Academics","author":"Anvi Rao","replies":13},
+  {"id":10,"title":"Student project showcase discussion","category":"Community","author":"Yash Mehta","replies":5},
+  {"id":11,"title":"Useful Git commands for group projects","category":"Technology","author":"Vivaan Shah","replies":10},
+  {"id":12,"title":"Placement interview experiences","category":"Career","author":"Aditya Shah","replies":18},
+  {"id":13,"title":"Notes exchange for semester two","category":"Academics","author":"Arjun Rao","replies":3},
+  {"id":14,"title":"Suggestions for the next campus event","category":"Community","author":"Ananya Patel","replies":14},
+  {"id":15,"title":"Portfolio feedback requested","category":"Career","author":"Kiara Patel","replies":9}
+]

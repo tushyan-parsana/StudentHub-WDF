@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration | StudentHub</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h1>StudentHub</h1>
+        </div>
+
+        <div class="header-icons">
+
+            <button class="notification-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li><a href="dashboard.html">Dashboard</a></li>
+
+                    <li class="dropdown">
+
+                        <button class="dropdown-btn">
+                            Academics ▼
+                        </button>
+
+                        <ul class="submenu">
+
+                            <li><a href="catalog.html">Catalog</a></li>
+                            <li><a href="course-detail.html">My Courses</a></li>
+                            <li><a href="assignments.html">Assignments</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li><a href="calender.html">Events</a></li>
+
+                    <li><a href="career.html">Career</a></li>
+
+                    <li><a href="forums.html">Forums</a></li>
+
+                    <li><a href="helpdesk.html">HelpDesk</a></li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <section class="content">
+
+            <section class="event-registration-section">
+                <header class="page-header">
+                    <div>
+                        <h2>Event Registration</h2>
+                        <p>Register for a campus event by submitting the details below.</p>
+                    </div>
+                </header>
+                <form id="event-registration-form" class="event-registration-form"
+                    action="http://localhost/studentHub/event-registration.php" method="post" novalidate>
+                    <div class="event-form-grid">
+                        <div class="event-form-group">
+                            <label for="event-student-id">Student ID</label>
+                            <input id="event-student-id" name="studentId" type="text"
+                                placeholder="Enter your student ID" autocomplete="off" required>
+                        </div>
+
+                        <div class="event-form-group">
+                            <label for="event-title">Event Title</label>
+                            <input id="event-title" name="eventTitle" type="text"
+                                placeholder="Enter the event title" required>
+                        </div>
+
+                        <div class="event-form-group">
+                            <label for="event-organiser">Event Organiser</label>
+                            <input id="event-organiser" name="eventOrganiser" type="text"
+                                placeholder="Enter the organiser's name" required>
+                        </div>
+
+                        <div class="event-form-group">
+                            <label for="event-date">Event Date</label>
+                            <input id="event-date" name="eventDate" type="date" required>
+                        </div>
+
+                        <div class="event-form-group">
+                            <label for="event-fees">Event Fees (₹)</label>
+                            <input id="event-fees" name="eventFees" type="number"
+                                min="0" step="0.01" placeholder="0.00" required>
+                        </div>
+                    </div>
+
+                    <button class="event-submit-button" type="submit">Register for Event</button>
+                    <p id="event-registration-status" class="event-registration-status"
+                        role="status" aria-live="polite"></p>
+                </form>
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script src="event-registration.js"></script>
+
+</body>
+</html>
