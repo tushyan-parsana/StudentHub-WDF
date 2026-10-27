@@ -17,7 +17,18 @@
     <main class="page-shell admin-shell">
         <p class="eyebrow">Administrator workspace</p>
         <h1>Management panel</h1>
-        <p class="intro">Manage the student directory and campus events from one place.</p>
+        <p class="intro">Monitor users, registrations, events, and administrator activity.</p>
+        <section class="stat-grid" aria-label="Dashboard statistics">
+            <article class="stat-card"><span>Students</span><strong id="student-count">--</strong></article>
+            <article class="stat-card"><span>Events</span><strong id="event-count">--</strong></article>
+            <article class="stat-card"><span>Registrations</span><strong id="registration-count">--</strong></article>
+            <article class="stat-card"><span>Open events</span><strong id="open-event-count">--</strong></article>
+        </section>
+        <p id="admin-status" class="status-message" role="status" aria-live="polite">Loading dashboard data...</p>
+        <section class="admin-data-grid">
+            <article class="admin-panel"><h2>Latest registrations</h2><div class="table-shell"><table><thead><tr><th>Student</th><th>Event</th><th>Registered</th></tr></thead><tbody id="latest-registrations"></tbody></table></div></article>
+            <article class="admin-panel"><h2>Audit log</h2><div class="table-shell"><table><thead><tr><th>Action</th><th>Entity</th><th>Actor</th><th>Time</th></tr></thead><tbody id="audit-rows"></tbody></table></div></article>
+        </section>
         <section class="admin-grid">
             <a class="admin-card" href="students.html">
                 <span class="admin-card-icon">01</span>
@@ -34,5 +45,7 @@
         </section>
     </main>
     <script src="session-ui.js"></script>
+    <script src="api-client.js"></script>
+    <script src="admin-dashboard.js"></script>
 </body>
 </html>
