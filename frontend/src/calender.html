@@ -105,7 +105,10 @@
 
                         <div class="event-form-group">
                             <label for="event-date">Event Date</label>
-                            <input id="event-date" name="eventDate" type="date" required>
+                            <input id="event-date" name="eventDate" type="text"
+                                inputmode="numeric" placeholder="YYYY-MM-DD"
+                                pattern="[0-9]{4}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[01])"
+                                required>
                         </div>
 
                         <div class="event-form-group">

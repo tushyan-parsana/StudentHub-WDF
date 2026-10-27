@@ -13,18 +13,19 @@ function showStatus(message, error = false) {
 }
 
 async function api(url = EVENTS_API, options = {}) {
-    const response = await fetch(url, {
-        credentials: 'include',
-        headers: { Accept: 'application/json', ...(options.body ? { 'Content-Type': 'application/json' } : {}) },
-        ...options
-    });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.message || 'Request failed.');
-    return data;
+    return window.studentHubApi(url, options);
 }
 
 function safe(value) {
     return String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+}
+
+function normalizeDate(value) {
+    return String(value).trim();
+}
+
+function formatDate(value) {
+    return String(value);
 }
 
 function renderEvents() {
@@ -33,7 +34,7 @@ function renderEvents() {
         const card = document.createElement('article');
         const registered = Number(event.registered) === 1;
         card.className = 'event-card';
-        card.innerHTML = `<p class="eyebrow">${safe(event.event_date)}</p><h2>${safe(event.event_title)}</h2><p>${safe(event.event_organiser)} · ₹${Number(event.event_fees).toFixed(2)}</p><p>${event.registrations_count} registration(s)</p><div class="event-actions"><button class="primary-button" data-register>${registered ? 'Registered' : 'Register'}</button>${registered ? '<button class="secondary-button" data-edit>Edit registration</button><button class="danger-button" data-delete>Cancel registration</button>' : ''}</div>`;
+        card.innerHTML = `<p class="eyebrow">${formatDate(event.event_date)}</p><h2>${safe(event.event_title)}</h2><p>${safe(event.event_organiser)} · ₹${Number(event.event_fees).toFixed(2)}</p><p>${event.registrations_count} registration(s)</p><div class="event-actions"><button class="primary-button" data-register>${registered ? 'Registered' : 'Register'}</button>${registered ? '<button class="secondary-button" data-edit>Edit registration</button><button class="danger-button" data-delete>Cancel registration</button>' : ''}</div>`;
         card.querySelector('[data-register]').disabled = registered;
         card.querySelector('[data-register]').addEventListener('click', () => registerEvent(event.event_id));
         card.querySelector('[data-edit]')?.addEventListener('click', () => openEdit(event));
@@ -64,6 +65,7 @@ function openNewEvent() {
 async function createEvent(event) {
     event.preventDefault();
     const payload = Object.fromEntries(new FormData(newEventForm).entries());
+    payload.event_date = normalizeDate(payload.event_date);
 
     try {
         await api(EVENTS_API, {

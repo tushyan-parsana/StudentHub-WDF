@@ -16,19 +16,7 @@ function showStatus(message, isError = false) {
 }
 
 async function requestApi(url = API_URL, options = {}) {
-    const response = await fetch(url, {
-        credentials: 'include',
-        headers: {
-            Accept: 'application/json',
-            ...(options.body ? { 'Content-Type': 'application/json' } : {})
-        },
-        ...options
-    });
-    const data = await response.json();
-    if (!response.ok) {
-        throw new Error(data.message || 'The request failed.');
-    }
-    return data;
+    return window.studentHubApi(url, options);
 }
 
 function studentFromForm() {
@@ -80,10 +68,16 @@ async function loadStudents() {
         showStatus(`${data.students.length} record(s) found.`);
     } catch (error) {
         showStatus(error.message, true);
-        if (error.message.includes('Administrator')) {
+        if (error.status === 401 || error.status === 403) {
             window.location.replace('dashboard.html');
         }
     }
+}
+
+let searchTimer;
+function queueStudentSearch() {
+    window.clearTimeout(searchTimer);
+    searchTimer = window.setTimeout(loadStudents, 300);
 }
 
 function openNew() {
@@ -136,7 +130,7 @@ document.querySelector('#new-student-button').addEventListener('click', openNew)
 document.querySelector('#close-dialog').addEventListener('click', () => dialog.close());
 document.querySelector('#cancel-dialog').addEventListener('click', () => dialog.close());
 form.addEventListener('submit', saveStudent);
-searchInput.addEventListener('input', loadStudents);
+searchInput.addEventListener('input', queueStudentSearch);
 genderFilter.addEventListener('change', loadStudents);
 clearFilters.addEventListener('click', () => {
     searchInput.value = '';

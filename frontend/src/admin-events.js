@@ -11,22 +11,19 @@ function showStatus(message, error = false) {
 }
 
 async function api(url = EVENTS_API, options = {}) {
-    const headers = { Accept: 'application/json' };
-    if (options.body && !(options.body instanceof FormData)) {
-        headers['Content-Type'] = 'application/json';
-    }
-    const response = await fetch(url, {
-        credentials: 'include',
-        headers,
-        ...options
-    });
-    const data = await response.json();
-    if (!response.ok) throw new Error(data.message || 'Request failed.');
-    return data;
+    return window.studentHubApi(url, options);
 }
 
 function safe(value) {
     return String(value).replace(/[&<>'"]/g, (character) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' }[character]));
+}
+
+function normalizeDate(value) {
+    return String(value).trim();
+}
+
+function formatDate(value) {
+    return String(value);
 }
 
 async function loadEvents() {
@@ -36,7 +33,7 @@ async function loadEvents() {
         data.events.forEach((event) => {
             const row = document.createElement('tr');
             const poster = event.poster_path ? `<img class="event-poster-thumb" src="http://localhost/studentHub/${safe(event.poster_path)}" alt="">` : '<span class="no-poster">None</span>';
-            row.innerHTML = `<td>${poster}</td><td>${safe(event.event_title)}</td><td>${safe(event.category)}</td><td><span class="event-status ${safe(event.status)}">${safe(event.status)}</span></td><td>${safe(event.event_organiser)}</td><td>${safe(event.event_date)}</td><td>₹${Number(event.event_fees).toFixed(2)}</td><td>${event.registrations_count}</td><td class="actions"><button data-edit>Edit</button><button data-delete>Delete</button></td>`;
+            row.innerHTML = `<td>${poster}</td><td>${safe(event.event_title)}</td><td>${safe(event.category)}</td><td><span class="event-status ${safe(event.status)}">${safe(event.status)}</span></td><td>${safe(event.event_organiser)}</td><td>${formatDate(event.event_date)}</td><td>₹${Number(event.event_fees).toFixed(2)}</td><td>${event.registrations_count}</td><td class="actions"><button data-edit>Edit</button><button data-delete>Delete</button></td>`;
             row.querySelector('[data-edit]').addEventListener('click', () => openEdit(event));
             row.querySelector('[data-delete]').addEventListener('click', () => deleteEvent(event.event_id));
             eventRows.append(row);
@@ -51,13 +48,14 @@ function openEvent(event = null) {
     editingEventId = event?.event_id || null;
     document.querySelector('#event-dialog-title').textContent = event ? 'Edit event' : 'Add event';
     eventForm.reset();
-    if (event) Object.entries(event).forEach(([key, value]) => { if (eventForm.elements[key]) eventForm.elements[key].value = value; });
+    if (event) Object.entries(event).forEach(([key, value]) => { if (eventForm.elements[key]) eventForm.elements[key].value = key === 'event_date' ? formatDate(value) : value; });
     eventDialog.showModal();
 }
 
 async function saveEvent(event) {
     event.preventDefault();
     const payload = new FormData(eventForm);
+    payload.set('event_date', normalizeDate(payload.get('event_date')));
     payload.append('action', editingEventId ? 'update' : 'create');
     if (editingEventId) payload.append('event_id', editingEventId);
     try {
