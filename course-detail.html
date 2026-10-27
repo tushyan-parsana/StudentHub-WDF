@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Courses | StudentHub</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body>
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h1>StudentHub</h1>
+        </div>
+
+        <div class="header-icons">
+
+            <button class="notification-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li>
+                        <a href="dashboard.html">Dashboard</a>
+                    </li>
+
+                    <li class="dropdown">
+
+                        <button class="dropdown-btn">
+                            Academics ▼
+                        </button>
+
+                        <ul class="submenu">
+
+                            <li><a href="catalog.html">Catalog</a></li>
+
+                            <li><a href="course-detail.html">My Courses</a></li>
+
+                            <li><a href="assignments.html">Assignments</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li><a href="calender.html">Events</a></li>
+
+                    <li><a href="career.html">Career</a></li>
+
+                    <li><a href="forums.html">Forums</a></li>
+
+                    <li><a href="helpdesk.html">HelpDesk</a></li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <section class="content">
+
+            <header class="page-header">
+
+                <h2>My Courses / Virtual Classroom</h2>
+
+                <button type="button">
+                    + Folder
+                </button>
+
+            </header>
+
+            <section class="course-layout">
+
+                <!-- Left Panel -->
+                <aside class="module-sidebar">
+
+                    <h3>Modules</h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="#">Details</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Modules</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Lecture Materials</a>
+                        </li>
+
+                        <li>
+                            <a href="#">Tutorials</a>
+                        </li>
+
+                    </ul>
+
+                </aside>
+
+                <!-- Right Panel -->
+                <section class="course-content">
+
+                    <!-- Course Outline -->
+                    <article class="course-outline">
+
+                        <h3>Course Outline</h3>
+
+                        <ul>
+
+                            <li>
+                                <input type="checkbox">
+                                <span>Module 1</span>
+                            </li>
+
+                            <li>
+                                <input type="checkbox">
+                                <span>Module 2</span>
+                            </li>
+
+                            <li>
+                                <input type="checkbox">
+                                <span>Module 4</span>
+                            </li>
+
+                        </ul>
+
+                    </article>
+
+                    <!-- Lecture Materials -->
+                    <article class="lecture-materials">
+
+                        <h3>Lecture Materials</h3>
+
+                        <div class="material-card">
+
+                            <input type="checkbox">
+
+                            <span>Lecture Material</span>
+
+                        </div>
+
+                        <div class="material-card">
+
+                            <input type="checkbox">
+
+                            <span>Lecture Material</span>
+
+                        </div>
+
+                    </article>
+
+                </section>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+
+</body>
+</html>

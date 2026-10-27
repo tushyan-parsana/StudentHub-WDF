@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Help Desk | StudentHub</title>
+
+    <link rel="stylesheet" href="styles/dashboard.css">
+</head>
+<body data-json-page="faqs">
+
+    <!-- Header -->
+    <header class="header">
+
+        <div class="logo">
+            <h1>StudentHub</h1>
+        </div>
+
+        <div class="header-icons">
+
+            <button class="notification-btn">
+                🔔
+            </button>
+
+            <button class="profile-btn">
+                👤
+            </button>
+
+        </div>
+
+    </header>
+
+    <!-- Main Layout -->
+    <main class="dashboard-container">
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+
+            <nav>
+
+                <ul class="menu">
+
+                    <li><a href="dashboard.html">Dashboard</a></li>
+
+                    <li class="dropdown">
+
+                        <button class="dropdown-btn">
+                            Academics ▼
+                        </button>
+
+                        <ul class="submenu">
+
+                            <li><a href="catalog.html">Catalog</a></li>
+
+                            <li><a href="course-detail.html">My Courses</a></li>
+
+                            <li><a href="assignments.html">Assignments</a></li>
+
+                        </ul>
+
+                    </li>
+
+                    <li><a href="calender.html">Events</a></li>
+
+                    <li><a href="career.html">Career</a></li>
+
+                    <li><a href="forums.html">Forums</a></li>
+
+                    <li><a href="helpdesk.html">Help Desk</a></li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- Main Content -->
+        <section class="content">
+
+            <!-- Page Header -->
+            <header class="page-header">
+
+                <h2>Help Desk</h2>
+
+            </header>
+
+            <section class="faq-section json-data-section">
+                <h3>FAQs</h3>
+                <div class="data-controls">
+                    <label for="json-search">Search FAQs</label>
+                    <input id="json-search" type="search" placeholder="Search FAQs..." autocomplete="off">
+                    <label for="json-filter">Filter</label>
+                    <select id="json-filter"><option value="all">All categories</option></select>
+                    <label for="json-sort">Sort</label>
+                    <select id="json-sort">
+                        <option value="default">Default order</option>
+                        <option value="asc">A to Z</option>
+                        <option value="desc">Z to A</option>
+                    </select>
+                </div>
+                <p id="json-status" class="data-status" role="status">Loading FAQs...</p>
+                <div id="json-list" class="data-list"></div>
+                <nav class="pagination" aria-label="FAQ pages">
+                    <button id="json-previous" type="button">Previous</button>
+                    <span id="json-page-summary">Page 1</span>
+                    <button id="json-next" type="button">Next</button>
+                </nav>
+            </section>
+
+            <!-- Contact Support -->
+            <section class="support-section">
+
+                <h3>Still Need Help?</h3>
+
+                <p>
+                    Submit a support request and our Help Desk team will
+                    contact you shortly.
+                </p>
+
+                <button type="button">
+                    Open Support Ticket
+                </button>
+
+            </section>
+
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+    <script src="data-render.js"></script>
+
+</body>
+</html>

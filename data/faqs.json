@@ -1,0 +1,17 @@
+[
+  {"id":1,"question":"How do I reset my password?","category":"Account","answer":"Use the Forgot Password link on the login page and follow the email instructions."},
+  {"id":2,"question":"How do I enroll in a course?","category":"Academics","answer":"Open Catalog, choose a course, and select Add to enroll."},
+  {"id":3,"question":"Where can I find assignments?","category":"Academics","answer":"Open Academics in the sidebar and choose Assignments."},
+  {"id":4,"question":"How do I update my profile?","category":"Account","answer":"Open your profile from the user icon and save your updated details."},
+  {"id":5,"question":"Where are campus events listed?","category":"Events","answer":"Open Events from the sidebar to view the campus calendar."},
+  {"id":6,"question":"How can I contact support?","category":"Support","answer":"Open Help Desk and select Open Support Ticket."},
+  {"id":7,"question":"How do I submit an assignment?","category":"Academics","answer":"Open Assignments, upload your file, and select Submit."},
+  {"id":8,"question":"Where can I find career opportunities?","category":"Career","answer":"Open Career to browse jobs, internships, and workshops."},
+  {"id":9,"question":"How do I join a forum discussion?","category":"Community","answer":"Open Forums and select a discussion to read or reply."},
+  {"id":10,"question":"Can I change my email address?","category":"Account","answer":"Contact Help Desk to request an email address change."},
+  {"id":11,"question":"How do I view course materials?","category":"Academics","answer":"Open My Courses and choose the course module."},
+  {"id":12,"question":"Where are my grades shown?","category":"Academics","answer":"Your graded work is available in the Assignments page."},
+  {"id":13,"question":"How do I register for a workshop?","category":"Events","answer":"Select the event from the Events page and follow its registration instructions."},
+  {"id":14,"question":"How do I report a technical issue?","category":"Support","answer":"Create a support ticket with a description and screenshot if available."},
+  {"id":15,"question":"Is dark mode saved?","category":"Account","answer":"Yes. Your theme choice is remembered in localStorage on this browser."}
+]
