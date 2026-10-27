@@ -39,7 +39,8 @@
 | ------- | ------------- |
 | Structure | HTML5        |
 | Styling   | Vanilla CSS  |
-| Logic     | JavaScript   |
+| Logic     | JavaScript and PHP |
+| Storage   | JSON files with file locking |
 
 ---
 
@@ -143,9 +144,36 @@ StudentHub/
 - **Login** (`login.html`) — Split-panel layout with branding on the left and a login form (email + password) on the right. Successful login redirects to the Dashboard.
 - **Registration** (`registration.html`) — Accessible student registration form with client-side feedback and a POST request to `registration.php`.
 - **Registration processing** (`registration.php`) — Validates and sanitizes submitted fields on the server, hashes passwords, checks duplicate student IDs/emails, and stores records in `frontend/src/data/registrations.json` using file locking.
+- **Storage helper** (`storage.php`) — Reads and appends JSON records with `flock()` and explicit JSON/file errors.
+- **Event processing** (`event-registration.php`) — Validates event registration POST data and stores it in `frontend/src/data/event-registrations.json`.
+- **Stored records** (`registration-records.php`) — Intermediate extension that displays saved registration records without exposing password hashes.
 - **Forgot Password** (`forgot.html`) — Simple email-entry form that sends a password-reset link. Includes a back-to-login navigation.
 
-To run the registration processor, serve `frontend/src` through PHP (for example, place the project under XAMPP/WAMP `htdocs` and open `registration.html` through `http://localhost`). Opening the HTML file directly with `file://` only supports the client-side form behavior; PHP requires a web server.
+To run the registration processor, serve `frontend/src` through PHP (for example, place the project under XAMPP/WAMP/Laragon `htdocs` and open `registration.html` through `http://localhost`). Opening the HTML file directly with `file://` only supports the client-side form behavior; PHP requires a web server. The JSON files must be writable by the PHP process.
+
+### Practical 7: PHP Form Processing
+
+**Problem:** Process submitted registration and event forms using PHP, validate and sanitize input on the server, and store records safely in CSV/JSON format.
+
+**Implementation flow:**
+
+1. The HTML form sends data with `method="post"` to a relative PHP processor.
+2. PHP checks the request method, validates every field, trims text, normalizes email, and escapes output with `htmlspecialchars()`.
+3. `password_hash()` stores only a password hash; the original password is never written to JSON.
+4. `storage.php` uses `flock(LOCK_EX)` while appending records, preventing simultaneous writes from corrupting the JSON file.
+5. The processor displays a clear success or error response.
+6. `registration-records.php` demonstrates the intermediate extension by displaying stored records while omitting the password hash.
+
+**Test cases:**
+
+| Test input | Expected result |
+| --- | --- |
+| Valid registration with all fields | Success message and a new record in `data/registrations.json` |
+| Missing student ID or invalid email | Error message; no record is written |
+| Weak password or mismatched confirmation | Error message; no record is written |
+| Duplicate student ID or email | Error message; no duplicate is written |
+| Event fees below 0 or above 100000 | Error message; no event record is written |
+| Valid event registration | Success message and a new record in `data/event-registrations.json` |
 
 ### 📊 Dashboard (`dashboard.html`)
 

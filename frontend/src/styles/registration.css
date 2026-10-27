@@ -217,6 +217,26 @@ body {
     text-decoration: underline;
 }
 
+table {
+    width: 100%;
+    border-collapse: collapse;
+    color: #333;
+    font-size: 12px;
+}
+
+th,
+td {
+    padding: 9px;
+    border: 1px solid #e5e7eb;
+    text-align: left;
+    white-space: nowrap;
+}
+
+th {
+    background: #4F46E5;
+    color: #fff;
+}
+
 @media (max-width: 800px) {
     .registration-layout {
         flex-direction: column;

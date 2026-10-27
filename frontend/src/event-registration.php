@@ -1,13 +1,17 @@
 <?php
 declare(strict_types=1);
 
-require_once __DIR__ . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . '..' .
-    DIRECTORY_SEPARATOR . 'studentHub' . DIRECTORY_SEPARATOR . 'config.php';
+require_once __DIR__ . DIRECTORY_SEPARATOR . 'storage.php';
 
 function postValue(string $key): string
 {
     $value = $_POST[$key] ?? '';
     return is_string($value) ? trim($value) : '';
+}
+
+function h(string $value): string
+{
+    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 
 $studentId = postValue('studentId');
@@ -17,46 +21,44 @@ $eventDate = postValue('eventDate');
 $eventFees = postValue('eventFees');
 $errors = [];
 $success = false;
+$filePath = __DIR__ . DIRECTORY_SEPARATOR . 'data' . DIRECTORY_SEPARATOR . 'event-registrations.json';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     $errors[] = 'Submit the event registration form to continue.';
-} elseif (!preg_match('/^[A-Za-z0-9-]{2,30}$/', $studentId)) {
-    $errors[] = 'Enter a valid student ID.';
-} elseif ($eventTitle === '' || $eventOrganiser === '') {
-    $errors[] = 'Event title and organiser are required.';
-} elseif (!DateTime::createFromFormat('Y-m-d', $eventDate)) {
-    $errors[] = 'Enter a valid event date.';
-} elseif (!is_numeric($eventFees) || (float) $eventFees < 0) {
-    $errors[] = 'Enter valid event fees.';
+} else {
+    if (!preg_match('/^[A-Za-z0-9-]{2,30}$/', $studentId)) {
+        $errors[] = 'Enter a valid student ID.';
+    }
+    if ($eventTitle === '' || !preg_match('/^[\p{L}0-9][\p{L}0-9 .,&()\'-]{1,99}$/u', $eventTitle)) {
+        $errors[] = 'Enter a valid event title.';
+    }
+    if ($eventOrganiser === '' || !preg_match('/^[\p{L}][\p{L} .&\'-]{1,79}$/u', $eventOrganiser)) {
+        $errors[] = 'Enter a valid event organiser.';
+    }
+    $date = DateTime::createFromFormat('!Y-m-d', $eventDate);
+    if (!$date || $date->format('Y-m-d') !== $eventDate) {
+        $errors[] = 'Enter a valid event date.';
+    }
+    if (!is_numeric($eventFees) || (float) $eventFees < 0 || (float) $eventFees > 100000) {
+        $errors[] = 'Enter event fees between ₹0 and ₹100000.';
+    }
 }
 
 if (!$errors) {
     try {
-        $statement = $conn->prepare(
-            'INSERT INTO event_registration
-                (student_id, event_title, event_organiser, event_date, event_fees)
-             VALUES
-                (:student_id, :event_title, :event_organiser, :event_date, :event_fees)'
-        );
-        $statement->execute([
-            ':student_id' => $studentId,
-            ':event_title' => $eventTitle,
-            ':event_organiser' => $eventOrganiser,
-            ':event_date' => $eventDate,
-            ':event_fees' => (float) $eventFees
+        appendJsonRecord($filePath, [
+            'studentId' => $studentId,
+            'eventTitle' => $eventTitle,
+            'eventOrganiser' => $eventOrganiser,
+            'eventDate' => $eventDate,
+            'eventFees' => round((float) $eventFees, 2),
+            'registeredAt' => date(DATE_ATOM)
         ]);
         $success = true;
-    } catch (PDOException $exception) {
-        $errors[] = $exception->getCode() === '23000'
-            ? 'The student ID was not found. Create a student account first.'
-            : 'Event registration could not be saved. Please try again.';
-        error_log('Event registration failed: ' . $exception->getMessage());
+    } catch (JsonException | RuntimeException $exception) {
+        $errors[] = 'Event registration could not be saved. Please try again.';
+        error_log('Event registration storage failed: ' . $exception->getMessage());
     }
-}
-
-function h(string $value): string
-{
-    return htmlspecialchars($value, ENT_QUOTES, 'UTF-8');
 }
 ?>
 <!DOCTYPE html>
@@ -65,25 +67,27 @@ function h(string $value): string
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Event Registration Result | StudentHub</title>
-    <link rel="stylesheet" href="styles/dashboard.css">
+    <link rel="stylesheet" href="styles/registration.css">
 </head>
 <body>
-    <main class="content">
-        <section class="event-registration-section">
-            <section class="event-registration-form" aria-live="polite">
+    <main class="registration-layout">
+        <section class="registration-branding">
+            <h1>StudentHub</h1>
+            <p>Practical 7: server-side validation and JSON file storage.</p>
+        </section>
+        <section class="registration-panel">
+            <section class="registration-card" aria-live="polite">
                 <h2><?= $success ? 'Registration successful' : 'Registration unsuccessful' ?></h2>
                 <?php if ($success): ?>
-                    <p class="event-registration-status success">
-                        Your event registration was saved successfully.
-                    </p>
-                    <a href="calender.html">Register for another event</a>
+                    <p class="success-message">Your event registration was saved successfully.</p>
+                    <a class="back-link" href="calender.html">Register for another event</a>
                 <?php else: ?>
-                    <div class="event-registration-status error">
+                    <div class="error-message">
                         <?php foreach ($errors as $error): ?>
                             <p><?= h($error) ?></p>
                         <?php endforeach; ?>
                     </div>
-                    <a href="calender.html">Back to event registration</a>
+                    <a class="back-link" href="calender.html">Back to event registration</a>
                 <?php endif; ?>
             </section>
         </section>
