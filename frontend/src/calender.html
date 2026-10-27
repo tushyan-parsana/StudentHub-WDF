@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Campus Events | StudentHub</title>
+    <title>Event Registration | StudentHub</title>
 
     <link rel="stylesheet" href="styles/dashboard.css">
 </head>
-<body data-json-page="events">
+<body>
 
     <!-- Header -->
     <header class="header">
@@ -75,32 +75,50 @@
         <!-- Main Content -->
         <section class="content">
 
-            <section class="json-data-section">
+            <section class="event-registration-section">
                 <header class="page-header">
                     <div>
-                        <h2>Campus Events</h2>
-                        <p>Browse upcoming academic, career, community, and workshop events.</p>
+                        <h2>Event Registration</h2>
+                        <p>Register for a campus event by submitting the details below.</p>
                     </div>
                 </header>
-                <div class="data-controls">
-                    <label for="json-search">Search events</label>
-                    <input id="json-search" type="search" placeholder="Search events..." autocomplete="off">
-                    <label for="json-filter">Filter</label>
-                    <select id="json-filter"><option value="all">All categories</option></select>
-                    <label for="json-sort">Sort</label>
-                    <select id="json-sort">
-                        <option value="default">Default order</option>
-                        <option value="asc">A to Z</option>
-                        <option value="desc">Z to A</option>
-                    </select>
-                </div>
-                <p id="json-status" class="data-status" role="status">Loading events...</p>
-                <div id="json-list" class="data-list"></div>
-                <nav class="pagination" aria-label="Event pages">
-                    <button id="json-previous" type="button">Previous</button>
-                    <span id="json-page-summary">Page 1</span>
-                    <button id="json-next" type="button">Next</button>
-                </nav>
+                <form id="event-registration-form" class="event-registration-form"
+                    action="event-registration.php" method="post" novalidate>
+                    <div class="event-form-grid">
+                        <div class="event-form-group">
+                            <label for="event-student-id">Student ID</label>
+                            <input id="event-student-id" name="studentId" type="text"
+                                placeholder="Enter your student ID" autocomplete="off" required>
+                        </div>
+
+                        <div class="event-form-group">
+                            <label for="event-title">Event Title</label>
+                            <input id="event-title" name="eventTitle" type="text"
+                                placeholder="Enter the event title" required>
+                        </div>
+
+                        <div class="event-form-group">
+                            <label for="event-organiser">Event Organiser</label>
+                            <input id="event-organiser" name="eventOrganiser" type="text"
+                                placeholder="Enter the organiser's name" required>
+                        </div>
+
+                        <div class="event-form-group">
+                            <label for="event-date">Event Date</label>
+                            <input id="event-date" name="eventDate" type="date" required>
+                        </div>
+
+                        <div class="event-form-group">
+                            <label for="event-fees">Event Fees (₹)</label>
+                            <input id="event-fees" name="eventFees" type="number"
+                                min="0" step="0.01" placeholder="0.00" required>
+                        </div>
+                    </div>
+
+                    <button class="event-submit-button" type="submit">Register for Event</button>
+                    <p id="event-registration-status" class="event-registration-status"
+                        role="status" aria-live="polite"></p>
+                </form>
             </section>
 
         </section>
@@ -108,7 +126,7 @@
     </main>
 
     <script src="script.js"></script>
-    <script src="data-render.js"></script>
+    <script src="event-registration.js"></script>
 
 </body>
 </html>

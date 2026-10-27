@@ -7,6 +7,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const successMessage = document.querySelector("#form-success");
 
     const rules = {
+        studentId: {
+            message: "Enter your student ID.",
+            valid: value => value.trim() !== ""
+        },
         fullName: {
             message: "Enter a name with at least 3 letters.",
             valid: value => /^[A-Za-z][A-Za-z .'-]{2,49}$/.test(value.trim())
@@ -65,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
         strengthLabel.textContent = value ? ["Very weak", "Weak", "Fair", "Good", "Strong", "Strong"][score] : "";
     };
 
-    ["fullName", "email", "mobile", "course", "year", "password", "confirmPassword"].forEach(function (fieldName) {
+    ["studentId", "fullName", "email", "mobile", "course", "year", "password", "confirmPassword"].forEach(function (fieldName) {
         const field = form.elements[fieldName];
         field.addEventListener("input", function () {
             validateField(fieldName);
@@ -84,15 +88,11 @@ document.addEventListener("DOMContentLoaded", function () {
     form.terms.addEventListener("change", function () { validateField("terms"); });
 
     form.addEventListener("submit", function (event) {
-        event.preventDefault();
         successMessage.textContent = "";
         const fieldNames = Object.keys(rules);
         const valid = fieldNames.map(validateField).every(Boolean);
-        if (valid) {
-            successMessage.textContent = "Registration details are valid. You can now continue to StudentHub.";
-            form.reset();
-            updateStrength();
-            fieldNames.forEach(function (fieldName) { setError(fieldName, ""); });
+        if (!valid) {
+            event.preventDefault();
         }
     });
 });

@@ -141,8 +141,11 @@ StudentHub/
 ### 🔐 Authentication
 
 - **Login** (`login.html`) — Split-panel layout with branding on the left and a login form (email + password) on the right. Successful login redirects to the Dashboard.
-- **Registration** (`registration.html`) — Accessible student registration form with HTML5 input types, regular-expression validation, password strength feedback, confirmation matching, and terms acceptance.
+- **Registration** (`registration.html`) — Accessible student registration form with client-side feedback and a POST request to `registration.php`.
+- **Registration processing** (`registration.php`) — Validates and sanitizes submitted fields on the server, hashes passwords, checks duplicate student IDs/emails, and stores records in `frontend/src/data/registrations.json` using file locking.
 - **Forgot Password** (`forgot.html`) — Simple email-entry form that sends a password-reset link. Includes a back-to-login navigation.
+
+To run the registration processor, serve `frontend/src` through PHP (for example, place the project under XAMPP/WAMP `htdocs` and open `registration.html` through `http://localhost`). Opening the HTML file directly with `file://` only supports the client-side form behavior; PHP requires a web server.
 
 ### 📊 Dashboard (`dashboard.html`)
 

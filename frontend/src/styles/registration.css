@@ -109,6 +109,13 @@ body {
     border-color: #dc2626;
 }
 
+.field select {
+    min-height: 43px;
+    background: #fff;
+    color: #333;
+    cursor: pointer;
+}
+
 .gender-field {
     min-width: 0;
     border: 0;

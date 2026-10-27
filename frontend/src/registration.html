@@ -14,26 +14,32 @@
         </section>
 
         <section class="registration-panel">
-            <form id="registration-form" class="registration-card" novalidate>
+            <form id="registration-form" class="registration-card" action="http://localhost/studentHub/registration.php" method="post" novalidate>
                 <h2>Create account</h2>
                 <p class="form-intro">All fields are required unless marked optional.</p>
 
                 <div class="form-row">
+                    <div class="field">
+                        <label for="student-id">Student ID</label>
+                        <input id="student-id" name="studentId" type="text" autocomplete="off"
+                            required aria-describedby="student-id-error">
+                        <small id="student-id-error" class="error-message"></small>
+                    </div>
                     <div class="field">
                         <label for="full-name">Full name</label>
                         <input id="full-name" name="fullName" type="text" autocomplete="name"
                             pattern="[A-Za-z][A-Za-z .'-]{2,49}" required aria-describedby="full-name-error">
                         <small id="full-name-error" class="error-message"></small>
                     </div>
+                </div>
+
+                <div class="form-row">
                     <div class="field">
                         <label for="email">Email address</label>
                         <input id="email" name="email" type="email" autocomplete="email" required
                             aria-describedby="email-error">
                         <small id="email-error" class="error-message"></small>
                     </div>
-                </div>
-
-                <div class="form-row">
                     <div class="field">
                         <label for="mobile">Mobile number</label>
                         <input id="mobile" name="mobile" type="tel" inputmode="numeric"
@@ -41,6 +47,9 @@
                             aria-describedby="mobile-error">
                         <small id="mobile-error" class="error-message"></small>
                     </div>
+                </div>
+
+                <div class="form-row">
                     <div class="field">
                         <label for="course">Course</label>
                         <select id="course" name="course" required aria-describedby="course-error">
@@ -52,9 +61,6 @@
                         </select>
                         <small id="course-error" class="error-message"></small>
                     </div>
-                </div>
-
-                <div class="form-row">
                     <div class="field">
                         <label for="year">Year</label>
                         <select id="year" name="year" required aria-describedby="year-error">
@@ -66,6 +72,9 @@
                         </select>
                         <small id="year-error" class="error-message"></small>
                     </div>
+                </div>
+
+                <div class="form-row">
                     <fieldset class="field gender-field">
                         <legend>Gender</legend>
                         <div class="radio-options">

@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "C:/laragon/www/studentHub"
+		}
+	],
+	"settings": {
+		"liveServer.settings.multiRootWorkspaceName": "Lab"
+	}
+}
