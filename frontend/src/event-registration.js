@@ -4,12 +4,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (!form || !status) return;
 
-    form.addEventListener("submit", function (event) {
+    form.addEventListener("submit", function () {
         if (!form.checkValidity()) {
-            event.preventDefault();
             status.className = "event-registration-status error";
             status.textContent = "Please complete all registration fields.";
-            form.reportValidity();
         }
     });
 });

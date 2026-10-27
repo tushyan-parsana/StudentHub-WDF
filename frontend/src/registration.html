@@ -14,7 +14,8 @@
         </section>
 
         <section class="registration-panel">
-            <form id="registration-form" class="registration-card" action="registration.php" method="post" novalidate>
+            <form id="registration-form" class="registration-card"
+                action="http://localhost/studentHub/registration.php" method="post" novalidate>
                 <h2>Create account</h2>
                 <p class="form-intro">All fields are required unless marked optional.</p>
 
@@ -46,31 +47,6 @@
                             pattern="[0-9]{10}" maxlength="10" autocomplete="tel" required
                             aria-describedby="mobile-error">
                         <small id="mobile-error" class="error-message"></small>
-                    </div>
-                </div>
-
-                <div class="form-row">
-                    <div class="field">
-                        <label for="course">Course</label>
-                        <select id="course" name="course" required aria-describedby="course-error">
-                            <option value="">Select course</option>
-                            <option value="bca">BCA</option>
-                            <option value="btech">B.Tech</option>
-                            <option value="bba">BBA</option>
-                            <option value="other">Other</option>
-                        </select>
-                        <small id="course-error" class="error-message"></small>
-                    </div>
-                    <div class="field">
-                        <label for="year">Year</label>
-                        <select id="year" name="year" required aria-describedby="year-error">
-                            <option value="">Select year</option>
-                            <option value="1">First year</option>
-                            <option value="2">Second year</option>
-                            <option value="3">Third year</option>
-                            <option value="4">Fourth year</option>
-                        </select>
-                        <small id="year-error" class="error-message"></small>
                     </div>
                 </div>
 

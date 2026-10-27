@@ -23,8 +23,6 @@ document.addEventListener("DOMContentLoaded", function () {
             message: "Enter a 10-digit mobile number.",
             valid: value => /^[0-9]{10}$/.test(value)
         },
-        course: { message: "Select your course.", valid: value => value !== "" },
-        year: { message: "Select your year.", valid: value => value !== "" },
         gender: { message: "Select your gender.", valid: () => Boolean(form.querySelector("input[name='gender']:checked")) },
         password: {
             message: "Password must include uppercase, lowercase, a number, and a special character.",
@@ -69,7 +67,7 @@ document.addEventListener("DOMContentLoaded", function () {
         strengthLabel.textContent = value ? ["Very weak", "Weak", "Fair", "Good", "Strong", "Strong"][score] : "";
     };
 
-    ["studentId", "fullName", "email", "mobile", "course", "year", "password", "confirmPassword"].forEach(function (fieldName) {
+    ["studentId", "fullName", "email", "mobile", "password", "confirmPassword"].forEach(function (fieldName) {
         const field = form.elements[fieldName];
         field.addEventListener("input", function () {
             validateField(fieldName);
@@ -90,9 +88,6 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (event) {
         successMessage.textContent = "";
         const fieldNames = Object.keys(rules);
-        const valid = fieldNames.map(validateField).every(Boolean);
-        if (!valid) {
-            event.preventDefault();
-        }
+        fieldNames.forEach(validateField);
     });
 });

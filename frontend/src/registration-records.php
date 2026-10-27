@@ -43,15 +43,15 @@ function h(string $value): string
                 <?php else: ?>
                     <div style="overflow-x:auto">
                         <table>
-                            <thead><tr><th>Student ID</th><th>Name</th><th>Email</th><th>Course</th><th>Year</th><th>Registered</th></tr></thead>
+                            <thead><tr><th>Student ID</th><th>Name</th><th>Email</th><th>Mobile</th><th>Gender</th><th>Registered</th></tr></thead>
                             <tbody>
                             <?php foreach ($records as $record): ?>
                                 <tr>
                                     <td><?= h((string) ($record['studentId'] ?? '')) ?></td>
                                     <td><?= h((string) ($record['fullName'] ?? '')) ?></td>
                                     <td><?= h((string) ($record['email'] ?? '')) ?></td>
-                                    <td><?= h((string) ($record['course'] ?? '')) ?></td>
-                                    <td><?= h((string) ($record['year'] ?? '')) ?></td>
+                                    <td><?= h((string) ($record['mobile'] ?? '')) ?></td>
+                                    <td><?= h((string) ($record['gender'] ?? '')) ?></td>
                                     <td><?= h((string) ($record['registeredAt'] ?? '')) ?></td>
                                 </tr>
                             <?php endforeach; ?>

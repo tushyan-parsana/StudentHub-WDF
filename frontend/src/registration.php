@@ -20,8 +20,6 @@ $studentId = postValue('studentId');
 $fullName = postValue('fullName');
 $email = strtolower(postValue('email'));
 $mobile = postValue('mobile');
-$course = postValue('course');
-$year = postValue('year');
 $gender = postValue('gender');
 $password = is_string($_POST['password'] ?? null) ? $_POST['password'] : '';
 $confirmPassword = is_string($_POST['confirmPassword'] ?? null) ? $_POST['confirmPassword'] : '';
@@ -42,12 +40,6 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     }
     if (!preg_match('/^[0-9]{10}$/', $mobile)) {
         $errors[] = 'Mobile number must contain exactly 10 digits.';
-    }
-    if (!in_array($course, ['bca', 'btech', 'bba', 'other'], true)) {
-        $errors[] = 'Select a valid course.';
-    }
-    if (!in_array($year, ['1', '2', '3', '4'], true)) {
-        $errors[] = 'Select a valid study year.';
     }
     if (!in_array($gender, ['female', 'male', 'other'], true)) {
         $errors[] = 'Select a gender.';
@@ -81,8 +73,6 @@ if (!$errors) {
                 'fullName' => $fullName,
                 'email' => $email,
                 'mobile' => $mobile,
-                'course' => strtoupper($course),
-                'year' => (int) $year,
                 'gender' => ucfirst($gender),
                 'passwordHash' => password_hash($password, PASSWORD_DEFAULT),
                 'registeredAt' => date(DATE_ATOM)
