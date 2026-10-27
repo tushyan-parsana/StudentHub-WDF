@@ -12,6 +12,7 @@
 - [Sitemap](#-sitemap)
 - [Page Descriptions](#-page-descriptions)
 - [Getting Started](#-getting-started)
+- [PHP and MySQL Setup](#-php-and-mysql-setup)
 - [Wireframes](#-wireframes)
 - [License](#-license)
 
@@ -39,8 +40,9 @@
 | ------- | ------------- |
 | Structure | HTML5        |
 | Styling   | Vanilla CSS  |
-| Logic     | JavaScript and PHP |
-| Storage   | JSON files with file locking |
+| Logic     | JavaScript, PHP, Fetch API |
+| Database  | MySQL with PDO and MySQLi |
+| Storage   | MySQL database and validated event poster uploads |
 
 ---
 
@@ -143,37 +145,38 @@ StudentHub/
 
 - **Login** (`login.html`) — Split-panel layout with branding on the left and a login form (email + password) on the right. Successful login redirects to the Dashboard.
 - **Registration** (`registration.html`) — Accessible student registration form with client-side feedback and a POST request to `registration.php`.
-- **Registration processing** (`registration.php`) — Validates and sanitizes submitted fields on the server, hashes passwords, checks duplicate student IDs/emails, and stores records in `frontend/src/data/registrations.json` using file locking.
-- **Storage helper** (`storage.php`) — Reads and appends JSON records with `flock()` and explicit JSON/file errors.
-- **Event processing** (`event-registration.php`) — Validates event registration POST data and stores it in `frontend/src/data/event-registrations.json`.
-- **Stored records** (`registration-records.php`) — Intermediate extension that displays saved registration records without exposing password hashes.
+- **Registration processing** (`registration.php`) — Validates input, hashes passwords, checks duplicate student IDs/emails, and inserts records into MySQL using PDO prepared statements.
+- **Authentication** (`login.php`, `auth.php`, `logout.php`) — Verifies passwords, starts sessions, enforces roles, supports timeout and remember-me tokens.
+- **Student API** (`students-api.php`) — Admin-only JSON CRUD endpoint for student records.
+- **Event API** (`events-api.php`) — Role-aware JSON CRUD endpoint for events, registrations, categories, statuses, and validated poster uploads.
+- **Admin dashboard API** (`admin-dashboard-api.php`) — Returns database statistics, recent registrations, and audit logs.
 - **Forgot Password** (`forgot.html`) — Simple email-entry form that sends a password-reset link. Includes a back-to-login navigation.
 
-To run the registration processor, serve `frontend/src` through PHP (for example, place the project under XAMPP/WAMP/Laragon `htdocs` and open `registration.html` through `http://localhost`). Opening the HTML file directly with `file://` only supports the client-side form behavior; PHP requires a web server. The JSON files must be writable by the PHP process.
+To run registration, copy the PHP backend into the server directory described in [PHP and MySQL Setup](#-php-and-mysql-setup), then open the frontend through Live Server. The frontend submits to `http://localhost/studentHub/registration.php`; PHP requires Apache or another web server and does not run from `file://` URLs.
 
 ### Practical 7: PHP Form Processing
 
-**Problem:** Process submitted registration and event forms using PHP, validate and sanitize input on the server, and store records safely in CSV/JSON format.
+**Problem:** Process submitted registration and event forms using PHP, validate and sanitize input on the server, and store records safely in MySQL.
 
 **Implementation flow:**
 
 1. The HTML form sends data with `method="post"` to a relative PHP processor.
 2. PHP checks the request method, validates every field, trims text, normalizes email, and escapes output with `htmlspecialchars()`.
-3. `password_hash()` stores only a password hash; the original password is never written to JSON.
-4. `storage.php` uses `flock(LOCK_EX)` while appending records, preventing simultaneous writes from corrupting the JSON file.
+3. `password_hash()` stores only a password hash; the original password is never written to the database.
+4. PDO prepared statements protect database inserts and duplicate checks.
 5. The processor displays a clear success or error response.
-6. `registration-records.php` demonstrates the intermediate extension by displaying stored records while omitting the password hash.
+6. Login uses `password_verify()` and PHP sessions to authenticate the stored account.
 
 **Test cases:**
 
 | Test input | Expected result |
 | --- | --- |
-| Valid registration with all fields | Success message and a new record in `data/registrations.json` |
+| Valid registration with all fields | Success message and new rows in `students` and `student_login` |
 | Missing student ID or invalid email | Error message; no record is written |
 | Weak password or mismatched confirmation | Error message; no record is written |
 | Duplicate student ID or email | Error message; no duplicate is written |
 | Event fees below 0 or above 100000 | Error message; no event record is written |
-| Valid event registration | Success message and a new record in `data/event-registrations.json` |
+| Valid event registration | Success message and a new row in `event_registration` |
 
 ### Practical 8: MySQL Schema Design and PDO Connectivity
 
@@ -181,7 +184,7 @@ The SQL script [`studentHub/practical-8-schema.sql`](studentHub/practical-8-sche
 
 Run the script in phpMyAdmin by opening the **Import** tab and selecting the SQL file, or paste its contents into the **SQL** tab. The existing PDO settings in `studentHub/config.php` use the Laragon defaults (`localhost`, user `root`, blank password, database `StudentHub`).
 
-The JSON processors from Practical 7 remain available for demonstrating file-based storage. Practical 8's SQL schema is ready for migrating those processors to prepared PDO statements.
+The current registration and event processors use the StudentHub MySQL tables. The JSON files under `frontend/src/data/` are retained only for static frontend content such as notices, forums, FAQs, and sample catalog data.
 
 PDO connectivity test: open `http://localhost/studentHub/pdo-connectivity.php`. The page runs `SELECT 1` to verify the connection and then runs a named-parameter prepared statement against the `events` table. A successful output is:
 
@@ -255,22 +258,85 @@ User profile management:
 
 ### Prerequisites
 
-Any modern web browser (Chrome, Firefox, Edge, Safari).
+- PHP 8.1 or later
+- MySQL or MariaDB
+- XAMPP, WAMP, or Laragon
+- VS Code Live Server (recommended for the frontend)
+- A modern web browser
 
-### Run Locally
+### PHP and MySQL Setup
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/tushyan-parsana/StudentHub-WDF.git
-   cd StudentHub-WDF
-   ```
+The project has two separate parts:
 
-2. **Open the entry point**
-   ```
-   Open  frontend/src/login.html  in your browser.
-   ```
+- `frontend/src/` contains HTML, CSS, and JavaScript.
+- `studentHub/` contains PHP, MySQL, API, authentication, and upload files.
 
-   Or use a local dev server (e.g. VS Code Live Server) for auto-reload.
+Copy the contents of the repository's `studentHub/` directory into your PHP server's web root:
+
+| Server | Backend directory |
+| --- | --- |
+| XAMPP | `C:\xampp\htdocs\studentHub` |
+| WAMP | `C:\wamp64\www\studentHub` |
+| Laragon | `C:\laragon\www\studentHub` |
+
+The backend files must be directly inside the `studentHub` folder. This includes `config.php`, `mysqli-config.php`, `login.php`, `events-api.php`, `students-api.php`, and `practical-8-schema.sql`.
+
+### Create the Database
+
+1. Start Apache and MySQL from XAMPP, WAMP, or Laragon.
+2. Open `http://localhost/phpmyadmin`.
+3. Select **Import** and choose `studentHub/practical-8-schema.sql`.
+4. Execute the import. It creates the `StudentHub` database, tables, seed students, events, and audit-log structure.
+5. Confirm that `students`, `student_login`, `events`, `event_registration`, and `audit_logs` exist.
+
+Default database settings:
+
+```text
+Host: localhost
+Database: StudentHub
+User: root
+Password: blank
+```
+
+If your MySQL installation uses a password, update both `studentHub/config.php` and `studentHub/mysqli-config.php`.
+
+### Serve the Frontend
+
+Open the repository's `Lab` folder in VS Code and start Live Server from the workspace root. Use:
+
+```text
+http://localhost:5500/frontend/src/login.html
+```
+
+Do not open the HTML files with `file://`; PHP sessions, Fetch requests, CORS credentials, and database operations require HTTP.
+
+### Important URLs
+
+```text
+Frontend login:       http://localhost:5500/frontend/src/login.html
+Student events:       http://localhost:5500/frontend/src/events.html
+Admin dashboard:      http://localhost:5500/frontend/src/admin.html
+Admin event manager:  http://localhost:5500/frontend/src/admin-events.html
+Student manager:      http://localhost:5500/frontend/src/students.html
+
+PHP login:            http://localhost/studentHub/login.php
+Students API:         http://localhost/studentHub/students-api.php
+Events API:           http://localhost/studentHub/events-api.php
+Admin dashboard API:  http://localhost/studentHub/admin-dashboard-api.php
+PDO test:             http://localhost/studentHub/pdo-connectivity.php
+```
+
+### Test Accounts
+
+```text
+Student
+Email: demo.student@example.com
+Password: Student@123
+
+Admin
+Email: admin@example.com
+Password: Student@123
+```
 
 ---
 
