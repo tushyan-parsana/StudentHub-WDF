@@ -27,7 +27,7 @@
         <p id="event-status" class="status-message" role="status" aria-live="polite"></p>
         <section class="table-shell">
             <table>
-                <thead><tr><th>Event</th><th>Organiser</th><th>Date</th><th>Fees</th><th>Registrations</th><th>Actions</th></tr></thead>
+                <thead><tr><th>Poster</th><th>Event</th><th>Category</th><th>Status</th><th>Organiser</th><th>Date</th><th>Fees</th><th>Registrations</th><th>Actions</th></tr></thead>
                 <tbody id="event-rows"></tbody>
             </table>
         </section>
@@ -38,6 +38,8 @@
             <label>Event title<input name="event_title" required></label>
             <label>Organiser<input name="event_organiser" required></label>
             <div class="form-grid"><label>Date<input name="event_date" type="date" required></label><label>Fees<input name="event_fees" type="number" min="0" step="0.01" required></label></div>
+            <div class="form-grid"><label>Category<input name="category" value="General" required></label><label>Status<select name="status"><option value="open">Open</option><option value="closed">Closed</option></select></label></div>
+            <label>Poster <span class="field-hint">JPG, PNG, or WebP up to 2 MB</span><input name="poster" type="file" accept="image/jpeg,image/png,image/webp"></label>
             <div class="dialog-actions"><button id="cancel-event-dialog" class="secondary-button" type="button">Cancel</button><button class="primary-button" type="submit">Save event</button></div>
         </form>
     </dialog>

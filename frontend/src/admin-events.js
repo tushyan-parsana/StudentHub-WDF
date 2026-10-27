@@ -11,9 +11,13 @@ function showStatus(message, error = false) {
 }
 
 async function api(url = EVENTS_API, options = {}) {
+    const headers = { Accept: 'application/json' };
+    if (options.body && !(options.body instanceof FormData)) {
+        headers['Content-Type'] = 'application/json';
+    }
     const response = await fetch(url, {
         credentials: 'include',
-        headers: { Accept: 'application/json', ...(options.body ? { 'Content-Type': 'application/json' } : {}) },
+        headers,
         ...options
     });
     const data = await response.json();
@@ -31,7 +35,8 @@ async function loadEvents() {
         eventRows.replaceChildren();
         data.events.forEach((event) => {
             const row = document.createElement('tr');
-            row.innerHTML = `<td>${safe(event.event_title)}</td><td>${safe(event.event_organiser)}</td><td>${safe(event.event_date)}</td><td>₹${Number(event.event_fees).toFixed(2)}</td><td>${event.registrations_count}</td><td class="actions"><button data-edit>Edit</button><button data-delete>Delete</button></td>`;
+            const poster = event.poster_path ? `<img class="event-poster-thumb" src="http://localhost/studentHub/${safe(event.poster_path)}" alt="">` : '<span class="no-poster">None</span>';
+            row.innerHTML = `<td>${poster}</td><td>${safe(event.event_title)}</td><td>${safe(event.category)}</td><td><span class="event-status ${safe(event.status)}">${safe(event.status)}</span></td><td>${safe(event.event_organiser)}</td><td>${safe(event.event_date)}</td><td>₹${Number(event.event_fees).toFixed(2)}</td><td>${event.registrations_count}</td><td class="actions"><button data-edit>Edit</button><button data-delete>Delete</button></td>`;
             row.querySelector('[data-edit]').addEventListener('click', () => openEdit(event));
             row.querySelector('[data-delete]').addEventListener('click', () => deleteEvent(event.event_id));
             eventRows.append(row);
@@ -52,10 +57,11 @@ function openEvent(event = null) {
 
 async function saveEvent(event) {
     event.preventDefault();
-    const payload = Object.fromEntries(new FormData(eventForm).entries());
-    if (editingEventId) payload.event_id = editingEventId;
+    const payload = new FormData(eventForm);
+    payload.append('action', editingEventId ? 'update' : 'create');
+    if (editingEventId) payload.append('event_id', editingEventId);
     try {
-        await api(EVENTS_API, { method: editingEventId ? 'PUT' : 'POST', body: JSON.stringify(payload) });
+        await api(EVENTS_API, { method: 'POST', body: payload });
         eventDialog.close();
         await loadEvents();
     } catch (error) { showStatus(error.message, true); }

@@ -37,6 +37,9 @@ CREATE TABLE IF NOT EXISTS events (
     event_organiser VARCHAR(80) NOT NULL,
     event_date DATE NOT NULL,
     event_fees DECIMAL(10, 2) NOT NULL DEFAULT 0.00,
+    category VARCHAR(40) NOT NULL DEFAULT 'General',
+    status ENUM('open', 'closed') NOT NULL DEFAULT 'open',
+    poster_path VARCHAR(255) NULL,
     created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (event_id),
     CONSTRAINT chk_events_fees CHECK (event_fees >= 0)
