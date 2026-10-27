@@ -175,6 +175,21 @@ To run the registration processor, serve `frontend/src` through PHP (for example
 | Event fees below 0 or above 100000 | Error message; no event record is written |
 | Valid event registration | Success message and a new record in `data/event-registrations.json` |
 
+### Practical 8: MySQL Schema Design and PDO Connectivity
+
+The SQL script [`studentHub/practical-8-schema.sql`](studentHub/practical-8-schema.sql) creates the `StudentHub` database and normalized `students`, `student_login`, `events`, and `event_registration` tables. It defines primary keys, unique constraints, foreign keys, validation checks, and safe sample data.
+
+Run the script in phpMyAdmin by opening the **Import** tab and selecting the SQL file, or paste its contents into the **SQL** tab. The existing PDO settings in `studentHub/config.php` use the Laragon defaults (`localhost`, user `root`, blank password, database `StudentHub`).
+
+The JSON processors from Practical 7 remain available for demonstrating file-based storage. Practical 8's SQL schema is ready for migrating those processors to prepared PDO statements.
+
+PDO connectivity test: open `http://localhost/studentHub/pdo-connectivity.php`. The page runs `SELECT 1` to verify the connection and then runs a named-parameter prepared statement against the `events` table. A successful output is:
+
+```text
+PDO connection successful. Connected to the StudentHub database.
+Prepared statement executed successfully.
+```
+
 ### 📊 Dashboard (`dashboard.html`)
 
 The main landing page after authentication. Features:
