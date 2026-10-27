@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Management | StudentHub</title>
+    <link rel="stylesheet" href="styles/students.css">
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body data-required-role="admin">
+    <header class="topbar">
+        <a class="brand" href="admin.html">StudentHub Admin</a>
+        <div class="topbar-actions">
+            <a href="admin.html">Admin panel</a>
+            <a href="http://localhost/studentHub/logout.php">Logout</a>
+        </div>
+    </header>
+    <main class="page-shell">
+        <section class="page-heading">
+            <div>
+                <p class="eyebrow">Admin workspace</p>
+                <h1>Event management</h1>
+                <p>Create, update, delete, and inspect registration totals.</p>
+            </div>
+            <button id="new-event-button" class="primary-button" type="button">Add event</button>
+        </section>
+        <p id="event-status" class="status-message" role="status" aria-live="polite"></p>
+        <section class="table-shell">
+            <table>
+                <thead><tr><th>Event</th><th>Organiser</th><th>Date</th><th>Fees</th><th>Registrations</th><th>Actions</th></tr></thead>
+                <tbody id="event-rows"></tbody>
+            </table>
+        </section>
+    </main>
+    <dialog id="event-dialog">
+        <form id="event-form" method="dialog">
+            <div class="dialog-heading"><div><p class="eyebrow">Event record</p><h2 id="event-dialog-title">Add event</h2></div><button id="close-event-dialog" class="icon-button" type="button" aria-label="Close">&times;</button></div>
+            <label>Event title<input name="event_title" required></label>
+            <label>Organiser<input name="event_organiser" required></label>
+            <div class="form-grid"><label>Date<input name="event_date" type="date" required></label><label>Fees<input name="event_fees" type="number" min="0" step="0.01" required></label></div>
+            <div class="dialog-actions"><button id="cancel-event-dialog" class="secondary-button" type="button">Cancel</button><button class="primary-button" type="submit">Save event</button></div>
+        </form>
+    </dialog>
+    <script src="session-ui.js"></script>
+    <script src="admin-events.js"></script>
+</body>
+</html>

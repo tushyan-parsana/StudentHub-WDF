@@ -1,0 +1,17 @@
+.admin-shell .intro { max-width: 620px; color: var(--muted); font-size: 1.05rem; }
+.admin-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; margin-top: 34px; }
+.admin-card { display: block; min-height: 240px; padding: 28px; border: 1px solid var(--line); background: var(--surface); transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease; }
+.admin-card:hover { border-color: var(--accent); box-shadow: 0 16px 35px #17212b14; transform: translateY(-4px); }
+.admin-card-icon { color: var(--accent); font-family: 'Space Grotesk', sans-serif; font-size: .82rem; font-weight: 700; }
+.admin-card h2 { margin: 36px 0 8px; font-size: 1.8rem; }
+.admin-card p { color: var(--muted); line-height: 1.6; }
+.admin-card-link { display: inline-block; margin-top: 18px; color: var(--teal); font-weight: 700; }
+.event-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 18px; }
+.event-card { padding: 22px; border: 1px solid var(--line); background: var(--surface); }
+.event-card h2 { margin: 6px 0 10px; font-size: 1.35rem; }
+.event-card > p:not(.eyebrow) { color: var(--muted); line-height: 1.5; }
+.event-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 20px; }
+.event-actions button:disabled { cursor: default; opacity: .6; }
+.danger-button { border: 1px solid #efb4b0; border-radius: 6px; padding: 11px 16px; background: #fff; color: #b42318; font-weight: 700; }
+.danger-button:hover { background: #fff1f0; }
+@media (max-width: 700px) { .admin-grid { grid-template-columns: 1fr; } }

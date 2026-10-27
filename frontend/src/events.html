@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | StudentHub</title>
+    <link rel="stylesheet" href="styles/students.css">
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body data-required-role="student">
+    <header class="topbar">
+        <a class="brand" href="dashboard.html">StudentHub</a>
+        <div class="topbar-actions"><a href="dashboard.html">Dashboard</a><a href="http://localhost/studentHub/logout.php">Logout</a></div>
+    </header>
+    <main class="page-shell">
+        <section class="page-heading"><div><p class="eyebrow">Campus calendar</p><h1>Events</h1><p>Browse all events and manage only your own registrations.</p></div><button id="new-event-button" class="primary-button" type="button">Add my event</button></section>
+        <p id="event-status" class="status-message" role="status" aria-live="polite"></p>
+        <section class="event-grid" id="event-cards"></section>
+    </main>
+    <dialog id="registration-dialog">
+        <form id="registration-form" method="dialog">
+            <div class="dialog-heading"><div><p class="eyebrow">Your registration</p><h2>Update registration</h2></div><button id="close-registration-dialog" class="icon-button" type="button" aria-label="Close">&times;</button></div>
+            <input id="registration-id" type="hidden">
+            <label>Choose event<select id="registration-event" required></select></label>
+            <div class="dialog-actions"><button id="cancel-registration-dialog" class="secondary-button" type="button">Cancel</button><button class="primary-button" type="submit">Update registration</button></div>
+        </form>
+    </dialog>
+    <dialog id="new-event-dialog">
+        <form id="new-event-form" method="dialog">
+            <div class="dialog-heading"><div><p class="eyebrow">New event</p><h2>Add my event</h2></div><button id="close-new-event-dialog" class="icon-button" type="button" aria-label="Close">&times;</button></div>
+            <label>Event title<input name="event_title" required></label>
+            <label>Organiser<input name="event_organiser" required></label>
+            <div class="form-grid"><label>Date<input name="event_date" type="date" required></label><label>Fees<input name="event_fees" type="number" min="0" step="0.01" required></label></div>
+            <div class="dialog-actions"><button id="cancel-new-event-dialog" class="secondary-button" type="button">Cancel</button><button class="primary-button" type="submit">Create and register</button></div>
+        </form>
+    </dialog>
+    <script src="session-ui.js"></script>
+    <script src="events.js"></script>
+</body>
+</html>

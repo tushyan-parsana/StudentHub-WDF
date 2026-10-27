@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel | StudentHub</title>
+    <link rel="stylesheet" href="styles/students.css">
+    <link rel="stylesheet" href="styles/admin.css">
+</head>
+<body data-required-role="admin">
+    <header class="topbar">
+        <a class="brand" href="admin.html">StudentHub Admin</a>
+        <div class="topbar-actions">
+            <a href="http://localhost/studentHub/logout.php">Logout</a>
+        </div>
+    </header>
+    <main class="page-shell admin-shell">
+        <p class="eyebrow">Administrator workspace</p>
+        <h1>Management panel</h1>
+        <p class="intro">Manage the student directory and campus events from one place.</p>
+        <section class="admin-grid">
+            <a class="admin-card" href="students.html">
+                <span class="admin-card-icon">01</span>
+                <h2>Students</h2>
+                <p>Add, update, search, filter, and delete student records.</p>
+                <span class="admin-card-link">Open student management</span>
+            </a>
+            <a class="admin-card" href="admin-events.html">
+                <span class="admin-card-icon">02</span>
+                <h2>Events</h2>
+                <p>Create, update, delete, and inspect event registrations.</p>
+                <span class="admin-card-link">Open event management</span>
+            </a>
+        </section>
+    </main>
+    <script src="session-ui.js"></script>
+</body>
+</html>

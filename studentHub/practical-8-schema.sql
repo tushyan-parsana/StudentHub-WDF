@@ -65,6 +65,30 @@ INSERT INTO students (student_id, full_name, email, mobile, gender, role)
 VALUES ('ADMIN-001', 'Admin User', 'admin@example.com', '9876543211', 'Other', 'admin')
 ON DUPLICATE KEY UPDATE student_id = student_id;
 
+INSERT INTO students (student_id, full_name, email, mobile, gender, role)
+VALUES
+    ('STU-001', 'Aarav Sharma', 'aarav.sharma@example.com', '9876543201', 'Male', 'student'),
+    ('STU-002', 'Ananya Patel', 'ananya.patel@example.com', '9876543202', 'Female', 'student'),
+    ('STU-003', 'Vihaan Mehta', 'vihaan.mehta@example.com', '9876543203', 'Male', 'student'),
+    ('STU-004', 'Ishita Rao', 'ishita.rao@example.com', '9876543204', 'Female', 'student'),
+    ('STU-005', 'Reyansh Singh', 'reyansh.singh@example.com', '9876543205', 'Male', 'student'),
+    ('STU-006', 'Diya Nair', 'diya.nair@example.com', '9876543206', 'Female', 'student'),
+    ('STU-007', 'Kabir Joshi', 'kabir.joshi@example.com', '9876543207', 'Male', 'student'),
+    ('STU-008', 'Myra Kapoor', 'myra.kapoor@example.com', '9876543208', 'Female', 'student'),
+    ('STU-009', 'Arjun Desai', 'arjun.desai@example.com', '9876543209', 'Male', 'student'),
+    ('STU-010', 'Sara Khan', 'sara.khan@example.com', '9876543212', 'Female', 'student'),
+    ('STU-011', 'Advik Shah', 'advik.shah@example.com', '9876543213', 'Male', 'student'),
+    ('STU-012', 'Meera Iyer', 'meera.iyer@example.com', '9876543214', 'Female', 'student'),
+    ('STU-013', 'Rohan Verma', 'rohan.verma@example.com', '9876543215', 'Male', 'student'),
+    ('STU-014', 'Tara Bansal', 'tara.bansal@example.com', '9876543216', 'Female', 'student'),
+    ('STU-015', 'Yash Malhotra', 'yash.malhotra@example.com', '9876543217', 'Male', 'student'),
+    ('STU-016', 'Nisha Gupta', 'nisha.gupta@example.com', '9876543218', 'Female', 'student'),
+    ('STU-017', 'Neil Thomas', 'neil.thomas@example.com', '9876543219', 'Male', 'student'),
+    ('STU-018', 'Aditi Sethi', 'aditi.sethi@example.com', '9876543220', 'Female', 'student'),
+    ('STU-019', 'Kian George', 'kian.george@example.com', '9876543221', 'Other', 'student'),
+    ('STU-020', 'Riya Chawla', 'riya.chawla@example.com', '9876543222', 'Female', 'student')
+ON DUPLICATE KEY UPDATE student_id = student_id;
+
 INSERT INTO student_login (student_id, email, password_hash)
 SELECT 'DEMO-001', 'demo.student@example.com',
     '$2y$10$/H9L8F3wduWFdlw07Z5ZkudVDr3cH2p3zYngcwta3zLPfCwYJYIXi'
@@ -86,6 +110,15 @@ WHERE NOT EXISTS (
     FROM events
     WHERE event_title = 'Web Workshop'
       AND event_date = '2026-11-15'
+);
+
+INSERT INTO events (event_title, event_organiser, event_date, event_fees)
+SELECT 'Career Fair', 'Placement Cell', '2026-12-05', 0.00
+WHERE NOT EXISTS (
+        SELECT 1
+        FROM events
+        WHERE event_title = 'Career Fair'
+            AND event_date = '2026-12-05'
 );
 
 INSERT IGNORE INTO event_registration (student_id, event_id)

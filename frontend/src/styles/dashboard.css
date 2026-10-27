@@ -64,6 +64,42 @@ body{
     transform:scale(1.08);
 }
 
+.header-user-name{
+    align-self:center;
+    max-width:180px;
+    overflow:hidden;
+    color:#fff;
+    font-size:14px;
+    font-weight:600;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+}
+
+.logout-link{
+    align-self:center;
+    padding:10px 16px;
+    border:1px solid rgba(255,255,255,.55);
+    border-radius:8px;
+    background:#fff;
+    color:#4F46E5;
+    font-size:13px;
+    font-weight:700;
+    line-height:1;
+    text-decoration:none;
+    transition:background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.logout-link:hover{
+    background:#FEE2E2;
+    color:#B91C1C;
+    transform:translateY(-1px);
+}
+
+.logout-link:focus-visible{
+    outline:3px solid #FDE68A;
+    outline-offset:3px;
+}
+
 /* ===========================
    Dashboard Layout
 =========================== */

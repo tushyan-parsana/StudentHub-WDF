@@ -71,7 +71,7 @@ document.addEventListener("DOMContentLoaded", function () {
     modal.className = "modal-backdrop";
     modal.innerHTML = '<div class="modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">' +
         '<button class="modal-close" type="button" aria-label="Close dialog">×</button>' +
-        '<h3 id="modal-title">Student Profile</h3><p>Welcome back, Alex. Your profile is up to date.</p></div>';
+        '<h3 id="modal-title">Student Profile</h3><p class="profile-welcome">Your profile is up to date.</p></div>';
     body.appendChild(modal);
 
     const closeModal = function () {
